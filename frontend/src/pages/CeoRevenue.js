@@ -13,7 +13,9 @@ import { Line } from "react-chartjs-2";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+
 
 function FlightChartData(month) {
   const [flights, setFlights] = useState([]);
@@ -373,6 +375,7 @@ function CeoRevenue() {
           <div className="CeoRevenueInnerContR2C1">
             <Line
               data={{
+
                 labels: ["april", "may", "june", "july"],
                 datasets: [
                   {
