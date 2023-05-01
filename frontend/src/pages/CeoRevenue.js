@@ -13,7 +13,7 @@ import { Line } from "react-chartjs-2";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement);
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 function FlightChartData(month) {
   const [flights, setFlights] = useState([]);
@@ -41,23 +41,23 @@ function FlightChartData(month) {
   var count = 0;
   flights.filter((data) => {
     switch (month) {
-      case "september":
-        if (data.departureDate.includes("2022-09")) {
+      case "april":
+        if (data.departureDate.includes("2023-04")) {
           count++;
         }
         break;
-      case "october":
-        if (data.departureDate.includes("2022-10")) {
+      case "may":
+        if (data.departureDate.includes("2023-05")) {
           count++;
         }
         break;
-      case "november":
-        if (data.departureDate.includes("2022-11")) {
+      case "june":
+        if (data.departureDate.includes("2023-06")) {
           count++;
         }
         break;
-      case "december":
-        if (data.departureDate.includes("2022-12")) {
+      case "july":
+        if (data.departureDate.includes("2023-07")) {
           count++;
         }
         break;
@@ -89,23 +89,23 @@ function HotelChartData(month) {
   var count = 0;
   hotels.filter((data) => {
     switch (month) {
-      case "september":
-        if (data.check_in.includes("2022-09")) {
+      case "april":
+        if (data.check_in.includes("2023-04")) {
           count++;
         }
         break;
-      case "october":
-        if (data.check_in.includes("2022-10")) {
+      case "may":
+        if (data.check_in.includes("2023-05")) {
           count++;
         }
         break;
-      case "november":
-        if (data.check_in.includes("2022-11")) {
+      case "june":
+        if (data.check_in.includes("2023-06")) {
           count++;
         }
         break;
-      case "december":
-        if (data.check_in.includes("2022-12")) {
+      case "july":
+        if (data.check_in.includes("2023-07")) {
           count++;
         }
         break;
@@ -137,23 +137,23 @@ function VehiclesChartData(month) {
   var count = 0;
   vehicles.filter((data) => {
     switch (month) {
-      case "september":
-        if (data.date.includes("2022-09")) {
+      case "april":
+        if (data.date.includes("2023-04")) {
           count++;
         }
         break;
-      case "october":
-        if (data.date.includes("2022-10")) {
+      case "may":
+        if (data.date.includes("2023-05")) {
           count++;
         }
         break;
-      case "november":
-        if (data.date.includes("2022-11")) {
+      case "june":
+        if (data.date.includes("2023-06")) {
           count++;
         }
         break;
-      case "december":
-        if (data.date.includes("2022-12")) {
+      case "july":
+        if (data.date.includes("2023-07")) {
           count++;
         }
         break;
@@ -185,23 +185,23 @@ function DesChartData(month) {
   var count = 0;
   destinations.filter((data) => {
     switch (month) {
-      case "september":
-        if (data.date.includes("2022-09")) {
+      case "april":
+        if (data.date.includes("2023-04")) {
           count++;
         }
         break;
-      case "october":
-        if (data.date.includes("2022-10")) {
+      case "may":
+        if (data.date.includes("2023-05")) {
           count++;
         }
         break;
-      case "november":
-        if (data.date.includes("2022-11")) {
+      case "june":
+        if (data.date.includes("2023-06")) {
           count++;
         }
         break;
-      case "december":
-        if (data.date.includes("2022-12")) {
+      case "july":
+        if (data.date.includes("2023-07")) {
           count++;
         }
         break;
@@ -231,17 +231,17 @@ export const options = {
   maintainAspectRatio: false,
 };
 
-var september = "september";
-var october = "october";
-var november = "november";
-var december = "december";
+var april = "april";
+var may = "may";
+var june = "june";
+var july = "july";
 
 // export const data = {
-//     labels: ['September', 'October', 'November', 'December'],
+//     labels: ['april', 'may', 'june', 'july'],
 //     datasets: [
 //       {
 //         label: 'Dataset 1',
-//         data: [passMonth(september), passMonth(october), passMonth(november), passMonth(december)],
+//         data: [passMonth(april), passMonth(may), passMonth(june), passMonth(july)],
 //         borderColor: 'rgb(255, 99, 132)',
 //         backgroundColor: 'rgba(255, 99, 132, 0.5)',
 //       },
@@ -373,48 +373,48 @@ function CeoRevenue() {
           <div className="CeoRevenueInnerContR2C1">
             <Line
               data={{
-                labels: ["September", "October", "November", "December"],
+                labels: ["april", "may", "june", "july"],
                 datasets: [
                   {
-                    label: "Number of Flights booked",
+                    label: "Flights booked",
                     data: [
-                      FlightChartData(september),
-                      FlightChartData(october),
-                      FlightChartData(november),
-                      FlightChartData(december),
+                      FlightChartData(april),
+                      FlightChartData(may),
+                      FlightChartData(june),
+                      FlightChartData(july),
                     ],
                     borderColor: "rgb(255, 99, 132)",
                     backgroundColor: "rgba(255, 99, 132, 0.5)",
                   },
                   {
-                    label: "Number of Hotels reserved",
+                    label: "Hotels reserved",
                     data: [
-                      HotelChartData(september),
-                      HotelChartData(october),
-                      HotelChartData(november),
-                      HotelChartData(december),
+                      HotelChartData(april),
+                      HotelChartData(may),
+                      HotelChartData(june),
+                      HotelChartData(july),
                     ],
                     borderColor: "rgb(0,0,255)",
                     backgroundColor: "rgba(255, 99, 132, 0.5)",
                   },
                   {
-                    label: "Number of Vehicles rented",
+                    label: "Vehicles rented",
                     data: [
-                      VehiclesChartData(september),
-                      VehiclesChartData(october),
-                      VehiclesChartData(november),
-                      VehiclesChartData(december),
+                      VehiclesChartData(april),
+                      VehiclesChartData(may),
+                      VehiclesChartData(june),
+                      VehiclesChartData(july),
                     ],
                     borderColor: "rgb(124,252,0)",
                     backgroundColor: "rgba(255, 99, 132, 0.5)",
                   },
                   {
-                    label: "Number of Attraction tickets booked",
+                    label: "Attraction tickets booked",
                     data: [
-                      DesChartData(september),
-                      DesChartData(october),
-                      DesChartData(november),
-                      DesChartData(december),
+                      DesChartData(april),
+                      DesChartData(may),
+                      DesChartData(june),
+                      DesChartData(july),
                     ],
                     borderColor: "rgb(234, 221, 202)",
                     backgroundColor: "rgba(255, 99, 132, 0.5)",
