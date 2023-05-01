@@ -13,8 +13,8 @@ import { Line } from "react-chartjs-2";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Legend);
 
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 
 function FlightChartData(month) {
@@ -239,11 +239,11 @@ var june = "june";
 var july = "july";
 
 // export const data = {
-//     labels: ['September', 'October', 'November', 'December'],
+//     labels: ['april', 'may', 'june', 'july'],
 //     datasets: [
 //       {
 //         label: 'Dataset 1',
-//         data: [passMonth(september), passMonth(october), passMonth(november), passMonth(december)],
+//         data: [passMonth(april), passMonth(may), passMonth(june), passMonth(july)],
 //         borderColor: 'rgb(255, 99, 132)',
 //         backgroundColor: 'rgba(255, 99, 132, 0.5)',
 //       },
@@ -375,11 +375,11 @@ function CeoRevenue() {
           <div className="CeoRevenueInnerContR2C1">
             <Line
               data={{
-                labels: ["April", "May", "June", "July"],
+
+                labels: ["april", "may", "june", "july"],
                 datasets: [
                   {
                     label: "Flights booked",
-                    
                     data: [
                       FlightChartData(april),
                       FlightChartData(may),
