@@ -148,7 +148,7 @@ function DesResForm({ destination }) {
               </div>
               <img
                 src={
-                  "https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2Fticket.png?alt=media&token=ed30c548-d368-40df-b445-03350ab7d9e5"
+                  "https://firebasestorage.googleapis.com/v0/b/srigo-c895d.appspot.com/o/%5BCROPPED%20-%20WHITE%5DLETTERS%20ONLY%20TRANSPARENT.png?alt=media&token=ecbbb39b-c625-48cc-9635-996257610f37"
                 }
                 alt="destination"
               />
