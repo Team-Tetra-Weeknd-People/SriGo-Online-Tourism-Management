@@ -113,6 +113,9 @@ function Navbar() {
             </Navbarx.Brand>
           </LinkContainer>
           <Nav className="me-auto">
+          <Nav.Link as={Link} to="/flights" className="navlink">
+              Culture
+            </Nav.Link>
             <Nav.Link as={Link} to="/flights" className="navlink">
               Flights
             </Nav.Link>
