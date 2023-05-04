@@ -12,7 +12,7 @@ function VehiclesEdit() {
   const [vehicles, setVehicles] = useState([]);
 
   const getVehicle = () => {
-    axios.get("http://localhost:8070/vehicles")
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/vehicles`)
       .then((res) => {
         setVehicles(res.data);
       })
@@ -22,7 +22,7 @@ function VehiclesEdit() {
   }
 
   const deleteVehicle = (id) => {
-    axios.delete(`http://localhost:8070/vehicles/delete/${id}`)  //Activates Hotel deleting function
+    axios.delete(`${process.env.REACT_APP_BACKEND_URL}/vehicles/delete/${id}`)  //Activates Hotel deleting function
         .then((res) => {
             alert("Vehicle Content Deleted");
             getVehicle();

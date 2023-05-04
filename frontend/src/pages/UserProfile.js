@@ -30,7 +30,7 @@ function UserProfile() {
 
   const getClient = () => {
     axios
-      .get("http://localhost:8070/client/" + id)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/client/` + id)
       .then((res) => {
         setFirstName(res.data.firstName);
         setLastName(res.data.lastName);
@@ -49,7 +49,7 @@ function UserProfile() {
     try {
       await deleteUser(auth.currentUser);
       axios
-        .delete(`http://localhost:8070/client/delete/${id}`)
+        .delete(`${process.env.REACT_APP_BACKEND_URL}/client/delete/${id}`)
         .then(() => {
           sessionStorage.removeItem("ID");
           alert("User account deleted");

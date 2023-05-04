@@ -40,7 +40,7 @@ function InvoiceForm(){
 
                 }
 
-                axios.post("http://localhost:8070/invoice/create", newInvoice)
+                axios.post(`${process.env.REACT_APP_BACKEND_URL}/invoice/create`, newInvoice)
                     .then(() => {
                         alert("Invoice succesfull");
                     }).catch((err) => {

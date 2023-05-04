@@ -19,7 +19,7 @@ function PackageReservationUpdateForm({}) {
     const navigate = useNavigate();
 
     const getpackageReservation = () => {
-        axios.get("http://localhost:8070/packageReservation/" + packageReservationId)
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/packageReservation/` + packageReservationId)
             .then((res) => {
                 setName(res.data.name);
                 setDate(res.data.date);
@@ -48,7 +48,7 @@ function PackageReservationUpdateForm({}) {
                         phoneNo,
                     };
 
-                    axios.put(`http://localhost:8070/packageReservation/update/${packageReservationId}`, newBook)
+                    axios.put(`${process.env.REACT_APP_BACKEND_URL}/packageReservation/update/${packageReservationId}`, newBook)
                         .then(() => {
                             alert("Package updated successfully");
                             navigate(`/clientDashboard/${id}/bookings/package`);

@@ -22,7 +22,7 @@ function DestinationUpdateForm() {
 
   const getDestination = () => {
     axios
-      .get("http://localhost:8070/destination/" + id)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/destination/` + id)
       .then((res) => {
         setName(res.data.name);
         setShortDesc(res.data.shortDesc);
@@ -98,7 +98,7 @@ function DestinationUpdateForm() {
 
                 axios
                   .put(
-                    "http://localhost:8070/destination/update/" + id,
+                    `${process.env.REACT_APP_BACKEND_URL}/destination/update/` + id,
                     newDestination
                   )
                   .then(() => {

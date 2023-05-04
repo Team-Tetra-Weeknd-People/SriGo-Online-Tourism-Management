@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
@@ -41,7 +42,7 @@ function RentalPreview() {
   const {id} = useParams();
 
   const getVehicle = async () => {
-    await axios.get("http://localhost:8070/vehicles/"+id)
+    await axios.get(`${process.env.REACT_APP_BACKEND_URL}/vehicles/`+id)
       .then((res) => {
         setVType(res.data.vehicleType);
         setType(res.data.type);

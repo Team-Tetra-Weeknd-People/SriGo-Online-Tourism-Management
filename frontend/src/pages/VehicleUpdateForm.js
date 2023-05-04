@@ -25,7 +25,7 @@ function VehicleUpdateForm() {
 
   const newVehicle = () => {
     axios
-      .get("http://localhost:8070/vehicles/" + id)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/vehicles` + id)
       .then((res) => {
         const updateVehicles = {
           type: res.data.type,
@@ -101,7 +101,7 @@ function VehicleUpdateForm() {
 
                 axios
                   .put(
-                    "http://localhost:8070/vehicles/update/" + id,
+                    `${process.env.REACT_APP_BACKEND_URL}vehicles/update/` + id,
                     newVehicle
                   )
                   .then(() => {
@@ -195,29 +195,6 @@ function VehicleUpdateForm() {
               }}
             />
           </div>
-          {/* <div className="form-group">
-            <label className="form-label">Images</label>
-            <input
-              type="file"
-              className="form-control"
-              onChange={(e) => {
-                setImage(e.target.files[0]);
-              }}
-              required
-            />
-          </div> */}
-          {/* <div className="form-group">
-            <label className="form-label">Fee</label>
-            <input
-              type="Number"
-              className="form-control"
-              value={fee}
-              onChange={(e) => {
-                setfee(e.target.value);
-              }}
-              required
-            />
-          </div> */}
           <div className="form-group">
             <label className="form-label">Seats</label>
             <input

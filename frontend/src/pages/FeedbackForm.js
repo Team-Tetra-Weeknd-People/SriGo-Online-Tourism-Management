@@ -46,7 +46,7 @@ function FeedbackForm(){
                                 image :url
                     }
 
-                    axios.post("http://localhost:8070/feedback/create", newFeedback)
+                    axios.post(`${process.env.REACT_APP_BACKEND_URL}/feedback/create`, newFeedback)
                         .then(() => {
                             alert("Feedback Form submitted succesfully");
                             navigate(`/clientDashboard/${sessionStorage.getItem("ID")}/feedback`);

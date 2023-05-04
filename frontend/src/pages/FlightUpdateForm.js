@@ -25,7 +25,7 @@ function FlightUpdateForm() {
     const {id} = useParams();
   
     const getFlight = () => {   
-        axios.get("http://localhost:8070/flights/"+id).then((res) => {
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/flights/`+id).then((res) => {
                 const updateFlight = {
                     name: res.data.name,
                     flightId: res.data.flightId,
@@ -96,7 +96,7 @@ function FlightUpdateForm() {
                    // imageI
                 }
 
-                axios.put("http://localhost:8070/flights/update/"+id, newFlight)
+                axios.put(`${process.env.REACT_APP_BACKEND_URL}/flights/update/`+id, newFlight)
                     .then(() => {
                         alert("Flight updated successfully");
                         navigate('/editorDashboard/editorWebContent/flight');

@@ -48,7 +48,7 @@ function PackagePreview(){
     const{id}=useParams();
 
     const getPackages=()=>{
-        axios.get("http://localhost:8070/packages/"+id).then((res)=>{
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/packages/`+id).then((res)=>{
                 setName(res.data.name);
                 setPrice(res.data.price);
                 setImage(res.data.image);

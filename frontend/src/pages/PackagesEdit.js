@@ -10,7 +10,7 @@ function PackagesEdit() {
   const [packages, setPackages] = useState([]);
 
   const getPackages = () => {
-    axios.get("http://localhost:8070/packages")//Activates Package View 
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/packages`)//Activates Package View 
       .then((res) => {
         setPackages(res.data);
       })
@@ -20,7 +20,7 @@ function PackagesEdit() {
   }
 
   const deletePackages = (id) => {
-    axios.delete(`http://localhost:8070/packages/delete/${id}`)  //Activates Package deleting function
+    axios.delete(`${process.env.REACT_APP_BACKEND_URL}/packages/delete/${id}`)  //Activates Package deleting function
         .then((res) => {
             alert("Packages Content Deleted");
             getPackages();

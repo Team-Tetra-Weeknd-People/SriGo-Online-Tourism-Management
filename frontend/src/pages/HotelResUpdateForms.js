@@ -20,7 +20,7 @@ function HotelResUpdateForms() {
     const navigate = useNavigate();
 
     const getReservation = () => {
-        axios.get("http://localhost:8070/hotelRes/" + hotelResId)
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/hotelRes/ `+ hotelResId)
             .then((res) => {
                 setName(res.data.name);
                 
@@ -64,7 +64,7 @@ function HotelResUpdateForms() {
                         customizations,
                     };
 
-                    axios.put(`http://localhost:8070/hotelRes/customize/${hotelResId}`, newTicket)
+                    axios.put(`${process.env.REACT_APP_BACKEND_URL}/hotelRes/customize/${hotelResId}`, newTicket)
                         .then(() => {
                             alert("Ticket updated successfully");
                             navigate(`/clientDashboard/${id}/bookings/hotel`);

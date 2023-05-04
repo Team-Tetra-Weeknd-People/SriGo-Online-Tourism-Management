@@ -33,7 +33,7 @@ function FinanceForm(){
                 
                 
 
-                axios.post("http://localhost:8070/finance/create", newFinanceForm)
+                axios.post(`${process.env.REACT_APP_BACKEND_URL}/finance/create`, newFinanceForm)
                     .then(() => {
                         alert("Flight Content added successfully");
                     }).catch((err) => {
