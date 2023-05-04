@@ -44,7 +44,7 @@ function HotelForm() {
                                 images: url
                             }
 
-                            axios.post("http://localhost:8070/hotels/create", newHotel)
+                            axios.post(`${process.env.REACT_APP_BACKEND_URL}/hotels/create`, newHotel)
                                 .then(() => {
                                     alert("Hotel Content added successfully");
                                 }).catch((err) => {

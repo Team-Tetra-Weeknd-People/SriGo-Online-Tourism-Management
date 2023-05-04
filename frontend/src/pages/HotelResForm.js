@@ -12,7 +12,7 @@ function HotelResForm({}) {
 
   const getUniqueHotel = async () => {
     await axios
-      .get("http://localhost:8070/hotels/" + id)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/hotels/ `+ id)
       .then((res) => {
         setHotel(res.data);
       })
@@ -91,7 +91,7 @@ function HotelResForm({}) {
               console.log(newBook);
 
               await axios
-                .post("http://localhost:8070/hotelRes/create", newBook)
+                .post(`${process.env.REACT_APP_BACKEND_URL}/hotelRes/create`, newBook)
                 .then(() => {
                   alert("Hotel Booked Successfully");
                   // navigate('/hotels');

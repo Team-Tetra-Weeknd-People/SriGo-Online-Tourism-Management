@@ -40,7 +40,7 @@ function Hotels() {
 
   const getHotels = () => {
     axios
-      .get("http://localhost:8070/hotels")
+      .get(`${process.env.REACT_APP_BACKEND_URL}/hotels`)
       .then((res) => {
         setHotels(res.data);
       })

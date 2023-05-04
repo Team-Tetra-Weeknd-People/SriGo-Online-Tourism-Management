@@ -18,7 +18,7 @@ function FinanceDashboard() {
 
 
     function setStates() {
-        axios.get('http://localhost:8070/flights')
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/flights`)
             .then((response) => {
                 setFlights(response.data);
             })
@@ -26,7 +26,7 @@ function FinanceDashboard() {
                 console.log(error);
             })
 
-        axios.get('http://localhost:8070/hotels')
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/hotels`)
             .then((response) => {
                 setHotels(response.data);
             })
@@ -34,7 +34,7 @@ function FinanceDashboard() {
                 console.log(error);
             })
 
-        axios.get('http://localhost:8070/vehicles')
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/vehicles`)
             .then((response) => {
                 setVehicles(response.data);
             })
@@ -42,7 +42,7 @@ function FinanceDashboard() {
                 console.log(error);
             })
 
-        axios.get('http://localhost:8070/destination')
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/destination`)
             .then((response) => {
                 setDestinations(response.data);
             })
@@ -50,7 +50,7 @@ function FinanceDashboard() {
                 console.log(error);
             })
 
-        axios.get('http://localhost:8070/packages')
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/packages`)
             .then((response) => {
                 setPackages(response.data);
             })
@@ -58,7 +58,7 @@ function FinanceDashboard() {
                 console.log(error);
             })
 
-        axios.get('http://localhost:8070/client')
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/client`)
             .then((response) => {
                 setClients(response.data);
             })
@@ -66,7 +66,7 @@ function FinanceDashboard() {
                 console.log(error);
             })
 
-            axios.get('http://localhost:8070/invoice')
+            axios.get(`${process.env.REACT_APP_BACKEND_URL}/invoice`)
             .then((response) => {
                 setInvoice(response.data);
             })

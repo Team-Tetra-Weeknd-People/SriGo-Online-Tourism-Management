@@ -20,7 +20,7 @@ function PackageUpdateForm() {
     const {id} = useParams();
   
     const newPackage = () => {   
-        axios.get("http://localhost:8070/packages/"+id) //get id
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/packages/`+id) //get id
             .then((res) => {
              
                 setName(res.data.name);
@@ -74,7 +74,7 @@ function PackageUpdateForm() {
                     image
                 }
 
-                axios.put("http://localhost:8070/packages/update/"+id, newPackage)
+                axios.put(`${process.env.REACT_APP_BACKEND_URL}/packages/update/`+id, newPackage)
                     .then(() => {
                         alert("Package updated successfully");
 

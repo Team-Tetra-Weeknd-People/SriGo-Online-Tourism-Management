@@ -19,7 +19,7 @@ function PackageReservationForm({}) {
 
   const navigate = useNavigate();
   const getPackages=()=>{
-    axios.get("http://localhost:8070/packages/"+id).then((res)=>{
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/packages/`+id).then((res)=>{
             
       setPackages(res.data);
             
@@ -60,7 +60,7 @@ function PackageReservationForm({}) {
               };
               console.log(newBook);
 
-              await axios.post("http://localhost:8070/packageReservation/create", newBook)
+              await axios.post(`${process.env.REACT_APP_BACKEND_URL}/packageReservation/create`, newBook)
               .then(() => {
                 alert("Package Booked Successfully");
                

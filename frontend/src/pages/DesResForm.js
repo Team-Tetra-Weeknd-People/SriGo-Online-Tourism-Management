@@ -180,7 +180,7 @@ function DesResForm({ destination }) {
               console.log(newTicket);
 
               axios
-                .post("http://localhost:8070/desTicket/create", newTicket)
+                .post(`${process.env.REACT_APP_BACKEND_URL}/desTicket/create`, newTicket)
                 .then(() => {
                   alert("Ticket added successfully");
                   navigate("/attractions");

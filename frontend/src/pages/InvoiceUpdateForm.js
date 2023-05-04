@@ -18,7 +18,7 @@ function InvoiceUpdateForm() {
     const {id} = useParams();
   
     const newInvoice = () => {   
-        axios.get("http://localhost:8070/invoice/"+id) //get id
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/invoice/`+id) //get id
             .then((res) => {
              
                 setfName(res.data.fName);
@@ -56,7 +56,7 @@ function InvoiceUpdateForm() {
                     additonalaNote,
                 }
 
-                axios.put("http://localhost:8070/invoice/update/"+id, newInvoice)
+                axios.put(`${process.env.REACT_APP_BACKEND_URL}/invoice/update/`+id, newInvoice)
                     .then(() => {
                         alert("Package updated successfully");
 
