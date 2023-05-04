@@ -43,7 +43,7 @@ function HotelPreview(){
     const{id}=useParams();
 
     const getHotel=()=>{
-        axios.get("http://localhost:8070/hotels/"+id).then((res)=>{
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/hotels/`+id).then((res)=>{
             /*const updateHotelDetails={
                 name: res.data.name,
                 location: res.data.location,

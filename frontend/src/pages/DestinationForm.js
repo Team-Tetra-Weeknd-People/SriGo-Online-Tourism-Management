@@ -57,7 +57,7 @@ function DestinationForm() {
 
                 axios
                   .post(
-                    "http://localhost:8070/destination/create",
+                    `${process.env.REACT_APP_BACKEND_URL}/destination/create`,
                     newDestination
                   )
                   .then(() => {

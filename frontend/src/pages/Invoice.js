@@ -12,7 +12,7 @@ function Invoice() {
   const [invoice, setInvoice] = useState([]);
 
   const getInvoice = () => {
-    axios.get("http://localhost:8070/invoice") 
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/invoice`) 
       .then((res) => {
         setInvoice(res.data);
       })
@@ -22,7 +22,7 @@ function Invoice() {
   }
 
   const deleteInvoice = (id) => {
-    axios.delete(`http://localhost:8070/invoice/delete/${id}`)
+    axios.delete(`${process.env.REACT_APP_BACKEND_URL}/invoice/delete/${id}`)
         .then((res) => {
             alert("invoice Content Deleted");
             getInvoice();

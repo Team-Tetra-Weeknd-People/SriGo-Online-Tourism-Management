@@ -27,7 +27,7 @@ function FlightChartData(month) {
 
   function getFlights() {
     axios
-      .get("http://localhost:8070/flightTicket")
+      .get(`${process.env.REACT_APP_BACKEND_URL}/flightTicket`)
       .then((response) => {
         setFlights(response.data);
       })
@@ -75,7 +75,7 @@ function HotelChartData(month) {
 
   function getHotels() {
     axios
-      .get("http://localhost:8070/hotelRes")
+      .get(`${process.env.REACT_APP_BACKEND_URL}/hotelRes`)
       .then((response) => {
         setHotels(response.data);
       })
@@ -123,7 +123,7 @@ function VehiclesChartData(month) {
 
   function getVehicles() {
     axios
-      .get("http://localhost:8070/rental")
+      .get(`${process.env.REACT_APP_BACKEND_URL}/rental`)
       .then((response) => {
         setVehicles(response.data);
       })
@@ -171,7 +171,7 @@ function DesChartData(month) {
 
   function getDes() {
     axios
-      .get("http://localhost:8070/desTicket")
+      .get(`${process.env.REACT_APP_BACKEND_URL}/desTicket`)
       .then((response) => {
         setDestinations(response.data);
       })
@@ -279,21 +279,9 @@ function CeoRevenue() {
   }, []);
 
   const getData = () => {
-    // axios.get("http://localhost:8070/destination")
-    //     .then((res) => {
-    //         setChildTicketBuyingRate(res.data[0].childTicketBuyingRate);
-    //         setAdultTicketBuyingRate(res.data[0].adultTicketBuyingRate);
-    //         setChildTicketSellingRate(res.data[0].childTicketSellingRate);
-    //         setAdultTicketSellingRate(res.data[0].adultTicketSellingRate);
-    //         console.log(res.data[0].childTicketBuyingRate);
-    //         setDestinationRevenue((adultTicketSellingRate - adultTicketBuyingRate) + (childTicketSellingRate - childTicketBuyingRate));
-    //     })
-    //     .catch((err) => {
-    //         alert(err);
-    //     });
 
     axios
-      .get("http://localhost:8070/desTicket")
+      .get(`${process.env.REACT_APP_BACKEND_URL}/desTicket`)
       .then((res) => {
         // setChildTicketBuyingRate(res.data[0].childTicketBuyingRate);
         // setAdultTicketBuyingRate(res.data[0].adultTicketBuyingRate);
@@ -310,7 +298,7 @@ function CeoRevenue() {
     setDestinationRevenue(totalDesRev);
 
     axios
-      .get("http://localhost:8070/flightTicket")
+      .get(`${process.env.REACT_APP_BACKEND_URL}/flightTicket`)
       .then((res) => {
         setFlightRes(res.data);
         // setPrice(res.data[0].price);
@@ -322,7 +310,7 @@ function CeoRevenue() {
     setFlightRev(totalFlightRev);
 
     axios
-      .get("http://localhost:8070/hotels")
+      .get(`${process.env.REACT_APP_BACKEND_URL}/hotels`)
       .then((res) => {
         setHotelRes(res.data);
       })

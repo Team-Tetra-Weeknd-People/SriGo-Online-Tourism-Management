@@ -8,7 +8,7 @@ function FlightEdit() {
   const [flights, setFlights] = useState([]);
 
   const getFlights = () => {
-    axios.get("http://localhost:8070/flights")
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/flights`)
       .then((res) => {
         setFlights(res.data);
       })
@@ -18,7 +18,7 @@ function FlightEdit() {
   }
 
   const deleteFlights = (id) => {
-    axios.delete(`http://localhost:8070/flights/remove/${id}`)  //Activates Flight deleting function
+    axios.delete(`${process.env.REACT_APP_BACKEND_URL}/flights/remove/${id}`)  //Activates Flight deleting function
         .then((res) => {
             alert("Flight Content Deleted");
             getFlights();

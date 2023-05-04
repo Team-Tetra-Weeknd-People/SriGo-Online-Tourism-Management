@@ -140,7 +140,7 @@ function FinancePending() {
         setCurrentPage(0);
         switch (type) {
             case 'flight':
-                axios.get('http://localhost:8070/flights')
+                axios.get(`${process.env.REACT_APP_BACKEND_URL}/flights`)
                     .then((res) => {
                         setArray(res.data);
                     })
@@ -149,7 +149,7 @@ function FinancePending() {
                     });
                 break;
             case 'hotel':
-                axios.get('http://localhost:8070/hotels')
+                axios.get(`${process.env.REACT_APP_BACKEND_URL}/hotels`)
                     .then((res) => {
                         setArray(res.data);
                     })
@@ -158,7 +158,7 @@ function FinancePending() {
                     });
                 break;
             case 'destination':
-                axios.get('http://localhost:8070/destination')
+                axios.get(`${process.env.REACT_APP_BACKEND_URL}/destination`)
                     .then((res) => {
                         setArray(res.data);
                     })
@@ -167,7 +167,7 @@ function FinancePending() {
                     });
                 break;
             case 'taxi':
-                axios.get('http://localhost:8070/vehicles')
+                axios.get(`${process.env.REACT_APP_BACKEND_URL}/vehicles`)
                     .then((res) => {
                         setArray(res.data);
                     })
@@ -176,7 +176,7 @@ function FinancePending() {
                     });
                 break;
             case 'package':
-                axios.get('http://localhost:8070/packages')
+                axios.get(`${process.env.REACT_APP_BACKEND_URL}/packages`)
                     .then((res) => {
                         setArray(res.data);
                     })
@@ -185,7 +185,7 @@ function FinancePending() {
                     });
                 break;
             case 'user':
-                axios.get('http://localhost:8070/client')
+                axios.get(`${process.env.REACT_APP_BACKEND_URL}/client`)
                     .then((res) => {
                         setArray(res.data);
                     })

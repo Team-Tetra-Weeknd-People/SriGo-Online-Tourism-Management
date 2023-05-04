@@ -40,7 +40,7 @@ function Taxis() {
 
   const getTaxis = () => {
     axios
-      .get("http://localhost:8070/vehicles")
+      .get(`${process.env.REACT_APP_BACKEND_URL}/vehicles`)
       .then((res) => {
         setTaxis(res.data);
       })

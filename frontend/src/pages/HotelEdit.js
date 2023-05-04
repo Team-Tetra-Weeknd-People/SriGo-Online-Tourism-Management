@@ -9,7 +9,7 @@ function HotelEdit() {
   const [hotels, setHotels] = useState([]);
 
   const getHotels = () => {
-    axios.get("http://localhost:8070/hotels")
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/hotels`)
       .then((res) => {
         setHotels(res.data);
       })
@@ -19,7 +19,7 @@ function HotelEdit() {
   }
 
   const deleteHotels = (id) => {
-    axios.delete(`http://localhost:8070/hotels/remove/${id}`)  //Activates Hotel deleting function
+    axios.delete(`${process.env.REACT_APP_BACKEND_URL}/hotels/remove/${id}`)  //Activates Hotel deleting function
         .then((res) => {
             alert("Hotel Content Deleted");
             getHotels();

@@ -40,7 +40,7 @@ function Flights() {
 
   const getFlights = () => {
     axios
-      .get("http://localhost:8070/flights")
+      .get(`${process.env.REACT_APP_BACKEND_URL}/flights`)
       .then((res) => {
         setFlights(res.data);
       })

@@ -34,7 +34,7 @@ function ProfileUpdateForm() {
 
   const getClient = () => {
     axios
-      .get("http://localhost:8070/client/" + id)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/client/` + id)
       .then((res) => {
         setFirstName(res.data.firstName);
         setLastName(res.data.lastName);
@@ -143,7 +143,7 @@ function ProfileUpdateForm() {
             }
 
             axios
-              .put("http://localhost:8070/client/update/" + id, newClient)
+              .put(`${process.env.REACT_APP_BACKEND_URL}/client/update/` + id, newClient)
               .then(() => {
                 setLoading(false);
                 alert("Profile updated successfully");

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
@@ -32,7 +33,7 @@ function RentalForm() {
 
   const getVehicle = async () => {
     await axios
-      .get("http://localhost:8070/vehicles/" + id)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/vehicles` + id)
       .then((res) => {
         setVehicle(res.data);
       })
@@ -48,7 +49,7 @@ function RentalForm() {
 
   const getDestination = async () => {
     await axios
-      .get("http://localhost:8070/destination/")
+      .get(`${process.env.REACT_APP_BACKEND_URL}/destination/`)
       .then((res) => {
         setDestination(res.data);
       })
@@ -63,7 +64,7 @@ function RentalForm() {
 
   const getHotel = async () => {
     await axios
-      .get("http://localhost:8070/hotels/")
+      .get(`${process.env.REACT_APP_BACKEND_URL}/hotels/`)
       .then((res) => {
         setHotel(res.data);
       })
@@ -104,7 +105,7 @@ function RentalForm() {
               console.log(newRental);
 
               axios
-                .post("http://localhost:8070/rental/create", newRental)
+                .post(`${process.env.REACT_APP_BACKEND_URL}/rental/create`, newRental)
                 .then(() => {
                   alert("Vehicle Rented successfully");
                   navigate("/taxis");

@@ -1,3 +1,4 @@
+/* eslint-disable default-case */
 import '../styles/sudul/EditorWebContent.css'
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -167,7 +168,7 @@ function EditorWebContent() {
     setCurrentPage(0);
     switch (type) {
       case 'flight':
-        axios.get('http://localhost:8070/flights')
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/flights`)
           .then((res) => {
             setArray(res.data);
           })
@@ -176,7 +177,7 @@ function EditorWebContent() {
           });
         break;
       case 'hotel':
-        axios.get('http://localhost:8070/hotels')
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/hotels`)
           .then((res) => {
             setArray(res.data);
           })
@@ -185,7 +186,7 @@ function EditorWebContent() {
           });
         break;
       case 'destination':
-        axios.get('http://localhost:8070/destination')
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/destination`)
           .then((res) => {
             setArray(res.data);
           })
@@ -194,7 +195,7 @@ function EditorWebContent() {
           });
         break;
       case 'taxi':
-        axios.get('http://localhost:8070/vehicles')
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/vehicles`)
           .then((res) => {
             setArray(res.data);
           })
@@ -203,7 +204,7 @@ function EditorWebContent() {
           });
         break;
       case 'package':
-        axios.get('http://localhost:8070/packages')
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/packages`)
           .then((res) => {
             setArray(res.data);
           })
@@ -217,7 +218,7 @@ function EditorWebContent() {
   function deleteBooking(bid) {
     switch (type) {
       case 'flight':
-        axios.delete(`http://localhost:8070/flights/remove/${bid}`)
+        axios.delete(`${process.env.REACT_APP_BACKEND_URL}/flights/remove/${bid}`)
           .then((res) => {
             getArray();
           })
@@ -226,7 +227,7 @@ function EditorWebContent() {
           });
         break;
       case 'hotel':
-        axios.delete(`http://localhost:8070/hotels/remove/${bid}`)
+        axios.delete(`${process.env.REACT_APP_BACKEND_URL}/hotels/remove/${bid}`)
           .then((res) => {
             getArray();
           })
@@ -235,7 +236,7 @@ function EditorWebContent() {
           });
         break;
       case 'destination':
-        axios.delete(`http://localhost:8070/destination/delete/${bid}`)
+        axios.delete(`${process.env.REACT_APP_BACKEND_URL}/destination/delete/${bid}`)
           .then((res) => {
             getArray();
           })
@@ -244,7 +245,7 @@ function EditorWebContent() {
           });
         break;
       case 'taxi':
-        axios.delete(`http://localhost:8070/vehicles/delete/${bid}`)
+        axios.delete(`${process.env.REACT_APP_BACKEND_URL}/vehicles/delete/${bid}`)
           .then((res) => {
             getArray();
           })
@@ -253,7 +254,7 @@ function EditorWebContent() {
           });
         break;
       case 'package':
-        axios.delete(`http://localhost:8070/packages/delete/${bid}`)
+        axios.delete(`${process.env.REACT_APP_BACKEND_URL}/packages/delete/${bid}`)
           .then((res) => {
             getArray();
           })

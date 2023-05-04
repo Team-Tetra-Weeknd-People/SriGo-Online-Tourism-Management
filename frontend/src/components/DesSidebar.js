@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
@@ -8,7 +9,7 @@ function DesSidebar() {
   const [attractions, setAttractions] = useState([]);
 
   const getAttractions = () => {
-    axios.get("http://localhost:8070/destination")
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/destination`)
       .then((res) => {
         setAttractions(res.data);
       })

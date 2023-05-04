@@ -8,17 +8,17 @@ function FinanceEdit() {
   const [finance, setFinance] = useState([]);
 
   const getFinance = () => {
-    axios.get("http://localhost:8070/finance")
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/finance`)
       .then((res) => {
         setFinance(res.data);
       })
-      .catch((err) => {``
+      .catch((err) => {
         alert(err);
       });
   }
 
   const deleteFinance = (id) => {
-    axios.delete(`http://localhost:8070/finance/remove/${id}`)  
+    axios.delete(`${process.env.REACT_APP_BACKEND_URL}/finance/remove/${id}`)  
         .then((res) => {
             alert("Flight Content Deleted");
             getFinance();
