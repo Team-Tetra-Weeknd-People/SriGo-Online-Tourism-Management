@@ -7,7 +7,7 @@
 }
 
 .heroCont1 {
-    background-image: url(https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2Fhero1.jpg?alt=media&token=62870419-7961-40fc-8b2f-a3a039a8e53b);
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/srigo-c895d.appspot.com/o/hero1.jpg?alt=media&token=ba176eb3-8216-43ee-b28f-9fdfbbbe53ac);
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -16,7 +16,7 @@
 }
 
 .heroCont2 {
-    background-image: url(https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2Fhero2.jpg?alt=media&token=dacc8735-1f25-4c4d-8397-835e052e3237);
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/srigo-c895d.appspot.com/o/hero3.jpg?alt=media&token=b1946702-c981-40d0-b6a9-bceca24ae067);
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -25,7 +25,8 @@
 }
 
 .heroCont3 {
-    background-image: url(https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2Fhero3.jpg?alt=media&token=d5c3ca50-c60e-4443-a594-f31caf36df0a);
+    position: relative;
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/srigo-c895d.appspot.com/o/8-Impressive-things-to-do-in-Ella-Sri-Lanka.jpg?alt=media&token=3644f721-5200-4bb8-9919-0fecd86519c1);
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
