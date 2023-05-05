@@ -141,7 +141,7 @@ function RegistrationForm() {
                   onChange={(e) => {
                     setContactNo(e.target.value);
                   }}
-                  pattern="[0-9]{10}"  title="Must contain only 10 digits"
+                  pattern="[0-9]{10}" title="Must contain only 10 digits"
                   required
                 />
               </div>
