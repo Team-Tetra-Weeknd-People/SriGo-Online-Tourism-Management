@@ -49,7 +49,7 @@ function FlightTicketView() {
     const navigate = useNavigate();
 
     const getReservation = () => {
-        axios.get("http://localhost:8070/flightTicket/" + flightResId)
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/flightTicket/` + flightResId)
             .then((res) => {
                 setFlight(res.data.flightName);
                 setFirstName(res.data.firstName);

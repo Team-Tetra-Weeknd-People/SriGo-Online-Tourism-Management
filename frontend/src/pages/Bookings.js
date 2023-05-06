@@ -1,3 +1,5 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable default-case */
 import "../styles/sudul/Bookings.css";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
@@ -217,7 +219,7 @@ function Bookings() {
     switch (type) {
       case "flight":
         axios
-          .get("http://localhost:8070/flightTicket")
+          .get(`${process.env.REACT_APP_BACKEND_URL}/flightTicket`)
           .then((res) => {
             setArray(res.data);
           })
@@ -227,7 +229,7 @@ function Bookings() {
         break;
       case "hotel":
         axios
-          .get("http://localhost:8070/hotelRes")
+          .get(`${process.env.REACT_APP_BACKEND_URL}/hotelRes`)
           .then((res) => {
             setArray(res.data);
           })
@@ -237,7 +239,7 @@ function Bookings() {
         break;
       case "destination":
         axios
-          .get("http://localhost:8070/desTicket")
+          .get(`${process.env.REACT_APP_BACKEND_URL}/desTicket`)
           .then((res) => {
             setArray(res.data);
           })
@@ -247,7 +249,7 @@ function Bookings() {
         break;
       case "taxi":
         axios
-          .get("http://localhost:8070/rental")
+          .get(`${process.env.REACT_APP_BACKEND_URL}/rental`)
           .then((res) => {
             setArray(res.data);
           })
@@ -257,7 +259,7 @@ function Bookings() {
         break;
       case "package":
         axios
-          .get("http://localhost:8070/packageReservation")
+          .get(`${process.env.REACT_APP_BACKEND_URL}/packageReservation`)
 
           .then((res) => {
             setArray(res.data);
@@ -274,7 +276,7 @@ function Bookings() {
       case "flight":
         function getUniqueFlight(e) {
           axios
-            .get("http://localhost:8070/flights/" + e)
+            .get(`${process.env.REACT_APP_BACKEND_URL}/flights/` + e)
             .then((res) => {
               setFlight(res.data);
               window.sessionStorage.setItem(
@@ -292,7 +294,7 @@ function Bookings() {
         }
         function getUniqueFlightTicket(e) {
           axios
-            .get("http://localhost:8070/flightTicket/" + e)
+            .get(`${process.env.REACT_APP_BACKEND_URL}/flightTicket/` + e)
             .then((res) => {
               setFlightTicket(res.data);
               console.log(res.data.seatNo);
@@ -334,7 +336,7 @@ function Bookings() {
             };
 
             axios
-              .put("http://localhost:8070/flights/update/" + ofid, tickFlight)
+              .put(`${process.env.REACT_APP_BACKEND_URL}/flights/update/`+ ofid, tickFlight)
               .then(() => {
                 alert("Flight updated successfully");
               })
@@ -369,7 +371,7 @@ function Bookings() {
             };
 
             axios
-              .put("http://localhost:8070/flights/update/" + ofid, tickFlight)
+              .put(  + ofid, tickFlight)
               .then(() => {
                 alert("Flight updated successfully");
               })
@@ -380,7 +382,7 @@ function Bookings() {
         }, 1000);
 
         axios
-          .delete(`http://localhost:8070/flightTicket/delete/${bid}`)
+          .delete(`${process.env.REACT_APP_BACKEND_URL}/flightTicket/delete/${bid}`)
           .then((res) => {
             getArray();
           })
@@ -390,7 +392,7 @@ function Bookings() {
         break;
       case "hotel":
         axios
-          .delete(`http://localhost:8070/hotelRes/cancel/${bid}`)
+          .delete(`${process.env.REACT_APP_BACKEND_URL}/hotelRes/cancel/${bid}`)
           .then((res) => {
             getArray();
           })
@@ -400,7 +402,7 @@ function Bookings() {
         break;
       case "destination":
         axios
-          .delete(`http://localhost:8070/desTicket/delete/${bid}`)
+          .delete(`${process.env.REACT_APP_BACKEND_URL}/desTicket/delete/${bid}`)
           .then((res) => {
             getArray();
           })
@@ -410,7 +412,7 @@ function Bookings() {
         break;
       case "taxi":
         axios
-          .delete(`http://localhost:8070/rental/delete/${bid}`)
+          .delete(`${process.env.REACT_APP_BACKEND_URL}/rental/delete/${bid}`)
           .then((res) => {
             getArray();
           })
@@ -420,7 +422,7 @@ function Bookings() {
         break;
       case "package":
         axios
-          .delete(`http://localhost:8070/packageReservation/delete/${bid}`)
+          .delete(`${process.env.REACT_APP_BACKEND_URL}/packageReservation/delete/${bid}`)
           .then((res) => {
             getArray();
           })

@@ -32,7 +32,7 @@ function FlightResForm() {
 
   const getUniqueFlight = async () => {
     await axios
-      .get("http://localhost:8070/flights/" + id)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/flights/` + id)
       .then((res) => {
         setFlight(res.data);
       })
@@ -163,7 +163,7 @@ function FlightResForm() {
               console.log(newTicket);
 
               axios
-                .post("http://localhost:8070/flightTicket/create", newTicket)
+                .post(`${process.env.REACT_APP_BACKEND_URL}/flightTicket/create`, newTicket)
                 .then(() => {
                   alert("Ticket added successfully");
                   if (classType == "Economy Class") {
@@ -180,7 +180,7 @@ function FlightResForm() {
                     };
     
                     axios
-                      .put("http://localhost:8070/flights/update/" + id, tickFlight)
+                      .put(`${process.env.REACT_APP_BACKEND_URL}/flights/update/ `+ id, tickFlight)
                       .then(() => {
                         alert("Flight updated successfully");
                         sessionStorage.removeItem("value");
@@ -202,7 +202,7 @@ function FlightResForm() {
                     };
     
                     axios
-                      .put("http://localhost:8070/flights/update/" + id, tickFlight)
+                      .put(`${process.env.REACT_APP_BACKEND_URL}/flights/update/` + id, tickFlight)
                       .then(() => {
                         alert("Flight updated successfully");
                         sessionStorage.removeItem("value");

@@ -1,3 +1,5 @@
+/* eslint-disable default-case */
+/* eslint-disable eqeqeq */
 import "../styles/sudul/CeoOverview.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -208,7 +210,7 @@ function CeoOverview() {
     switch (type) {
       case "flight":
         axios
-          .get("http://localhost:8070/flights")
+          .get(`${process.env.REACT_APP_BACKEND_URL}/flights`)
           .then((res) => {
             setArray(res.data);
           })
@@ -218,7 +220,7 @@ function CeoOverview() {
         break;
       case "hotel":
         axios
-          .get("http://localhost:8070/hotels")
+          .get(`${process.env.REACT_APP_BACKEND_URL}/hotels`)
           .then((res) => {
             setArray(res.data);
           })
@@ -228,7 +230,7 @@ function CeoOverview() {
         break;
       case "destination":
         axios
-          .get("http://localhost:8070/destination")
+          .get(`${process.env.REACT_APP_BACKEND_URL}/destination`)
           .then((res) => {
             setArray(res.data);
           })
@@ -238,7 +240,7 @@ function CeoOverview() {
         break;
       case "taxi":
         axios
-          .get("http://localhost:8070/vehicles")
+          .get(`${process.env.REACT_APP_BACKEND_URL}/vehicles`)
           .then((res) => {
             setArray(res.data);
           })
@@ -248,7 +250,7 @@ function CeoOverview() {
         break;
       case "package":
         axios
-          .get("http://localhost:8070/packages")
+          .get(`${process.env.REACT_APP_BACKEND_URL}/packages`)
           .then((res) => {
             setArray(res.data);
           })
@@ -258,7 +260,7 @@ function CeoOverview() {
         break;
       case "user":
         axios
-          .get("http://localhost:8070/client")
+          .get(`${process.env.REACT_APP_BACKEND_URL}/client`)
           .then((res) => {
             setArray(res.data);
           })
@@ -478,7 +480,7 @@ function CeoOverview() {
             <img
               className="imgoverviewlogo"
               src={
-                "https://firebasestorage.googleapis.com/v0/b/journeyly-7f164.appspot.com/o/images%2Fothers%2FJourneyly_Slogan-color.webp?alt=media&token=46432dde-c8e0-43e9-bc91-77b8a98e3f76"
+                "https://firebasestorage.googleapis.com/v0/b/srigo-c895d.appspot.com/o/%5BCROPPED%5DLETTERS%20ONLY%20TRANSPARENT.png?alt=media&token=d9c540ba-f0e6-41e0-8e7c-ddd87d9c8b27"
               }
               alt="logo"
             />

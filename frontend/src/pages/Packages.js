@@ -15,7 +15,7 @@ function Packages() {
 
   const getPackages = () => {
     axios
-      .get("http://localhost:8070/packages")
+      .get(`${process.env.REACT_APP_BACKEND_URL}/packages`)
       .then((res) => {
         setPackages(res.data);
       })

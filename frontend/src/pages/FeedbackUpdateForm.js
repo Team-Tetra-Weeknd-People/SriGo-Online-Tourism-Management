@@ -18,7 +18,7 @@ function FeedbackUpdateForm(){
     const navigate = useNavigate();
   
     const getFeedback = () => {   
-        axios.get("http://localhost:8070/feedback/"+id).then((res) => {
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/feedback/`+id).then((res) => {
                 const updateFeedback = {
                     feedbacktype: res.data.feedbacktype,
                     placeofincident: res.data.placeofincident,
@@ -74,7 +74,7 @@ function FeedbackUpdateForm(){
                     image,
                 }
 
-                axios.put("http://localhost:8070/feedback/update/"+id, newFeedback)
+                axios.put(`${process.env.REACT_APP_BACKEND_URL}/feedback/update/`+id, newFeedback)
                     .then(() => {
                         alert("Feedback updated successfully");
                         navigate(`/clientDashboard/${id}/feedback`);

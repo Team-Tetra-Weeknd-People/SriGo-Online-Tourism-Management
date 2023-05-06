@@ -1,35 +1,30 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
-const invoiceSchema = new Schema({
-    fName: {
+const cultureSchema = new Schema({
+    name: {
         type: String,
         required: true
     },
-    email: {
+    month: {
         type: String,
         required: true
     },
-    phone: {
+    location: {
         type: String,
         required: true
     },
-    Type: {
+    description: {
         type: String,
         required: true
     },
-    price: {
+    image: {
         type: String,
         required: true
-    },
-    additonalaNote: {
-        type: String,
-
-
-    },
+    }
 });
 
-const Invoice = mongoose.model("Invoice", invoiceSchema);
+const culture = mongoose.model("culture", cultureSchema);
 
-export default Invoice;
+export default culture;

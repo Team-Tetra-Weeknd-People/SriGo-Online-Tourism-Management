@@ -56,7 +56,7 @@ function FlightForm() {
                                 imageI: url
                             }
 
-                            axios.post("http://localhost:8070/flights/create", newFlight)
+                            axios.post(`${process.env.REACT_APP_BACKEND_URL}/flights/create`, newFlight)
                                 .then(() => {
                                     alert("Flight Content added successfully");
                                     navigate('/editorDashboard/editorWebContent/flight');

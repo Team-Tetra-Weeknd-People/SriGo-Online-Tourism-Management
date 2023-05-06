@@ -23,7 +23,7 @@ function DesResUpdateForm() {
 
   const getReservation = () => {
     axios
-      .get("http://localhost:8070/desTicket/" + desResId)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/desTicket/` + desResId)
       .then((res) => {
         setDestination(res.data.desName);
         setFirstName(res.data.firstName);
@@ -44,7 +44,7 @@ function DesResUpdateForm() {
 
   const getDestination = () => {
     axios
-      .get("http://localhost:8070/destination/" + desId)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/destination/` + desId)
       .then((res) => {
         setChildTicketSellingRate(res.data.childTicketSellingRate);
         setAdultTicketSellingRate(res.data.adultTicketSellingRate);
@@ -85,7 +85,7 @@ function DesResUpdateForm() {
 
             axios
               .put(
-                `http://localhost:8070/desTicket/update/${desResId}`,
+                `${process.env.REACT_APP_BACKEND_URL}/desTicket/update/${desResId}`,
                 newTicket
               )
               .then(() => {

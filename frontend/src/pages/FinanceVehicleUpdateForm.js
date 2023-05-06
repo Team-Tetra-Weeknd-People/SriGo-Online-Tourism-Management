@@ -11,7 +11,7 @@ function FinanceVehicleUpdateForm() {
     const navigate = useNavigate();
   
     const getUniqueVehicle = () => {   
-        axios.get("http://localhost:8070/vehicles/" + id)
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/vehicles/`+ id)
             .then((res) => {
                 setName(res.data.driverName);
                 setFee(res.data.fee);
@@ -33,7 +33,7 @@ function FinanceVehicleUpdateForm() {
                     const newVehicle = {
                         fee
                     }
-                    await axios.put("http://localhost:8070/vehicles/update/" + id, newVehicle).then(() => {
+                    await axios.put(`${process.env.REACT_APP_BACKEND_URL}/vehicles/update/` + id, newVehicle).then(() => {
                         alert("Vehicle Updated");
                         navigate("/financeDashboard/pending/taxi");
                     }).catch((err) => {
@@ -41,30 +41,7 @@ function FinanceVehicleUpdateForm() {
                     })
                 }}>
 
-                    {/* await getDownloadURL(ref(storage, `images/flight/${name + imageI.name}`))
-                        .then((url) => {
-                            console.log(url);
-                            
-                        }).catch((err) => {
-                            console.log(err);
-                            const newFlight = {
-                                name,
-                                shortDesc,
-                                longDesc,
-                                location,
-                                extra,
-                                includes,
-                                images:url,
-                            };
-                            axios.put("http://localhost:8070/flight/update/" + id, newFlight)
-                                .then(() => {
-                                    alert("Flight updated successfully");
-                                    navigate('/editorDashboard/editorWebContent/flight');
-                                }).catch((err) => {
-                                    alert(err);
-                                })
-                        });
-                    }}> */}
+
 
                     <div className="form-group">
                         <label className="form-label">Name</label>

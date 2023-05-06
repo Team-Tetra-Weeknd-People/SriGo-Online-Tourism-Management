@@ -14,7 +14,7 @@ function FinanceUpdateForm(){
     const {id} = useParams();
   
     const getFinance = () => {   
-        axios.get("http://localhost:8070/finance/"+id).then((res) => {
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/finance/`+id).then((res) => {
                 const updateFinance = {
                     pkgType: res.data.name,
                     expDate: res.data.name,
@@ -55,7 +55,7 @@ function FinanceUpdateForm(){
                     finalPrice,
                 }
 
-                axios.put("http://localhost:8070/flights/update/"+id, newFinace)
+                axios.put(`${process.env.REACT_APP_BACKEND_URL}/flights/update/`+id, newFinance)
                     .then(() => {
                         alert("Finance updated successfully");
 

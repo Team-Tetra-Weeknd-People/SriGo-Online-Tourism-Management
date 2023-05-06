@@ -31,6 +31,9 @@ function EditorDashSidebar() {
         <Link className='EditorSTabContS' to={`/editorDashboard/editorWebContent/package`}>
           <span className="material-symbols-outlined">package</span><p>Packages</p>
         </Link>
+        <Link className='EditorSTabContS' to={`/editorDashboard/editorWebContent/cultures`}>
+          <span className="material-symbols-outlined">Celebration</span><p>Cultural Scenarios</p>
+        </Link>
       </p>
     </div>
   )

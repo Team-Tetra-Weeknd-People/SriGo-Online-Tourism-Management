@@ -15,7 +15,7 @@ function FinanceDestinationUpdateForm() {
 
   const getDestination = () => {
     axios
-      .get("http://localhost:8070/destination/" + id)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/destination/` + id)
       .then((res) => {
         setName(res.data.name);
         setChildTicketBuyingRate(res.data.childTicketBuyingRate);
@@ -47,7 +47,7 @@ function FinanceDestinationUpdateForm() {
             };
             await axios
               .put(
-                "http://localhost:8070/destination/update/" + id,
+                `${process.env.REACT_APP_BACKEND_URL}/destination/update/` + id,
                 newDestination
               )
               .then(() => {
@@ -59,32 +59,6 @@ function FinanceDestinationUpdateForm() {
               });
           }}
         >
-          {/* await getDownloadURL(ref(storage, `images/destination/${name + imageI.name}`))
-                        .then((url) => {
-                            console.log(url);
-
-                            
-                        }).catch((err) => {
-                            console.log(err);
-                            const newDestination = {
-                                name,
-                                shortDesc,
-                                longDesc,
-                                location,
-                                extra,
-                                includes,
-                                images:url,
-                            };
-
-                            axios.put("http://localhost:8070/destination/update/" + id, newDestination)
-                                .then(() => {
-                                    alert("Destination updated successfully");
-                                    navigate('/editorDashboard/editorWebContent/destination');
-                                }).catch((err) => {
-                                    alert(err);
-                                })
-                        });
-                    }}> */}
 
           <div className="form-group">
             <label className="form-label">Name</label>

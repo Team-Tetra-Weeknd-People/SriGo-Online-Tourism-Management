@@ -48,7 +48,7 @@ function FlightPreview() {
     const {id} = useParams();
   
     const getFlight = () => {   
-        axios.get("http://localhost:8070/flights/"+id).then((res) => {
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/flights/`+id).then((res) => {
                /* const updateFlight = {
                     name: res.data.name,
                     flightId: res.data.flightId,

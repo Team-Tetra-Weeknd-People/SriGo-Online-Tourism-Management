@@ -10,7 +10,7 @@ function DestinationBookings() {
   const { id } = useParams();
 
   const getBookings = async () => {
-    await axios.get("http://localhost:8070/desTicket/user/"+id)
+    await axios.get(`${process.env.REACT_APP_BACKEND_URL}/desTicket/user/`+id)
       .then((res) => {
         setBookings(res.data);
         console.log(res.data);
@@ -22,7 +22,7 @@ function DestinationBookings() {
 
   const getDestination = async (id) => {
     let destination = "";
-    await axios.get("http://localhost:8070/destination/"+id)
+    await axios.get(`${process.env.REACT_APP_BACKEND_URL}/destination/`+id)
       .then((res) => {
         // setDesName(res.data.name);
         return res.data.name;
@@ -33,7 +33,7 @@ function DestinationBookings() {
   }
 
   const deleteBooking = (bid) => {
-    axios.delete(`http://localhost:8070/desTicket/delete/${bid}`)
+    axios.delete(`${process.env.REACT_APP_BACKEND_URL}/desTicket/delete/${bid}`)
         .then((res) => {
             getBookings();
         })

@@ -57,7 +57,7 @@ function Navbar() {
   useEffect(() => {
     if (user) {
       axios
-        .post("http://localhost:8070/client/login", {
+        .post(`${process.env.REACT_APP_BACKEND_URL}/client/login`, {
           email,
           password: password,
         })
@@ -77,7 +77,7 @@ function Navbar() {
   useEffect(() => {
     if (gUser) {
       axios
-        .post("http://localhost:8070/client/login", {
+        .post(`${process.env.REACT_APP_BACKEND_URL}/client/login`, {
           email: gUser.user?.email,
           password: "No Password",
         })
@@ -113,6 +113,9 @@ function Navbar() {
             </Navbarx.Brand>
           </LinkContainer>
           <Nav className="me-auto">
+            <Nav.Link as={Link} to="/Cultures" className="navlink">
+              Culture
+            </Nav.Link>
             <Nav.Link as={Link} to="/flights" className="navlink">
               Flights
             </Nav.Link>

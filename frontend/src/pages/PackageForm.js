@@ -50,7 +50,7 @@ function PackageForm() {
                         image :url
                     }
 
-                    axios.post("http://localhost:8070/packages/create", newPackage)
+                    axios.post(`${process.env.REACT_APP_BACKEND_URL}/packages/create`, newPackage)
                         .then(() => {
                             alert("Package Content added successfully");
                         }).catch((err) => {

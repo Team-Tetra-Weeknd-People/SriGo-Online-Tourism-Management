@@ -8,7 +8,7 @@ function AttractionEdit() {
   const [attractions, setAttractions] = useState([]);
 
   const getAttractions = () => {
-    axios.get("http://localhost:8070/destination")
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/destination`)
       .then((res) => {
         setAttractions(res.data);
       })
@@ -18,7 +18,7 @@ function AttractionEdit() {
   }
 
   const deleteAttraction = (id) => {
-    axios.delete(`http://localhost:8070/destination/delete/${id}`)
+    axios.delete(`${process.env.REACT_APP_BACKEND_URL}/destination/delete/${id}`)
         .then((res) => {
             alert("Attraction Deleted");
             getAttractions();

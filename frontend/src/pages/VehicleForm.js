@@ -61,7 +61,7 @@ function VehicleForm() {
                 };
 
                 axios
-                  .post("http://localhost:8070/vehicles/create", newVehicle)
+                  .post(`${process.env.REACT_APP_BACKEND_URL}vehicles/create`, newVehicle)
                   .then(() => {
                     alert("Vehicle Content added successfully");
                     navigate("/editorDashboard/editorWebContent/taxi");

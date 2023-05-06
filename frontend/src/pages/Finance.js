@@ -8,7 +8,7 @@ function Finance() {
   const [finance, setFinance] = useState([]);
 
   const getFinance = () => {
-    axios.get("http://localhost:8070/packages")
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/packages`)
       .then((res) => {
         setFinance(res.data);
       })
@@ -24,7 +24,7 @@ function Finance() {
    
     <h1 className='financeHeader'>Finance</h1>
     <div className='container d-flex flex-wrap' style={{ width: '80%'}}>
-      {packages.map((data) => {
+      {finance.map((data) => {
         return (
           <Card style={{ width: '75rem',height:'25rem', margin: '2rem', padding: '0rem'}} className='PackageCard'>
             <Card.Img src={data.image} className='imageFinance' />

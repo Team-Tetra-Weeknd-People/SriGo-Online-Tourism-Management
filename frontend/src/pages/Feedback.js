@@ -8,7 +8,7 @@ function Feedback() {
   const [feedback, setFeedback] = useState([]);
 
   const getFeedback = () => {
-    axios.get("http://localhost:8070/feedback")
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/feedback`)
       .then((res) => {
         setFeedback(res.data);
       })
@@ -18,7 +18,7 @@ function Feedback() {
   }
 
   const deleteFeedback = (id) => {
-    axios.delete(`http://localhost:8070/feedback/delete/${id}`)  //Activates Flight deleting function
+    axios.delete(`${process.env.REACT_APP_BACKEND_URL}/feedback/delete/${id}`)  //Activates Flight deleting function
         .then((res) => {
             alert("Feedback Content Deleted");
             getFeedback();

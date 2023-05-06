@@ -39,7 +39,7 @@ function RegistrationForm() {
     if (user) {
       signOut(auth);
       axios
-        .post("http://localhost:8070/client/create", newClient)
+        .post(`${process.env.REACT_APP_BACKEND_URL}/client/create`, newClient)
         .then(() => {
           alert("Registration successfull!");
           navigate("/");
@@ -60,7 +60,7 @@ function RegistrationForm() {
       };
 
       axios
-        .post("http://localhost:8070/client/create", googleClient)
+        .post(`${process.env.REACT_APP_BACKEND_URL}/client/create`, googleClient)
         .then(() => {
           alert("Registration successfull!");
           signOut(auth);
@@ -141,7 +141,7 @@ function RegistrationForm() {
                   onChange={(e) => {
                     setContactNo(e.target.value);
                   }}
-                  pattern="[0-9]{10}"  title="Must contain only 10 digits"
+                  pattern="[0-9]{10}" title="Must contain only 10 digits"
                   required
                 />
               </div>

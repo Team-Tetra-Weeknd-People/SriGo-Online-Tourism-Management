@@ -1,3 +1,4 @@
+/* eslint-disable default-case */
 import '../styles/sudul/EditorWebContent.css'
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -134,7 +135,18 @@ function EditorWebContent() {
             return data;
           } else if (data.vehicleType.toLowerCase().includes(searchTerm.toLowerCase())) {
             return data;
-          } 
+          }
+          break;
+        case 'cultures':
+          if (searchTerm == "") {
+            return data;
+          } else if (data.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+            return data;
+          } else if (data.month.toLowerCase().includes(searchTerm.toLowerCase())) {
+            return data;
+          } else if (data.location.toLowerCase().includes(searchTerm.toLowerCase())) {
+            return data;
+          }
           break;
       }
     })
@@ -143,21 +155,21 @@ function EditorWebContent() {
       SetData(data);
       return (
         <>
-        <tr>
-          <td className='setWidth concat' style={{ display: cold1hid }}>{cold1}</td>
-          <td className='setWidth concat' style={{ display: cold2hid }}>{cold2}</td>
-          <td className='setWidth concat' style={{ display: cold3hid }}>{cold3}</td>
-          <td className='setWidth concat' style={{ display: cold4hid }}>{cold4}</td>
-          <td className='setWidth concat' style={{ display: cold5hid }}>{cold5}</td>
-          <td className='setWidth concat' style={{ display: cold6hid }}>{cold6}</td>
-          <td className='setWidth concat' style={{ display: cold7hid }}>{cold7}</td>
-          <td className='setWidth concat' style={{ display: cold8hid }}>{cold8}</td>
-          <td className='setWidth concat' style={{ display: cold9hid }}>{cold9}</td>
-          <td className='setWidth concat' style={{ display: cold10hid }}>{cold10}</td>
-          <td className='setWidth concat' style={{ display: cold11hid }}>{cold11}</td>
-          <td className='setWidth concat' style={{ display: cold12hid }}>{cold12}</td>
-        </tr>
-          </>
+          <tr>
+            <td className='setWidth concat' style={{ display: cold1hid }}>{cold1}</td>
+            <td className='setWidth concat' style={{ display: cold2hid }}>{cold2}</td>
+            <td className='setWidth concat' style={{ display: cold3hid }}>{cold3}</td>
+            <td className='setWidth concat' style={{ display: cold4hid }}>{cold4}</td>
+            <td className='setWidth concat' style={{ display: cold5hid }}>{cold5}</td>
+            <td className='setWidth concat' style={{ display: cold6hid }}>{cold6}</td>
+            <td className='setWidth concat' style={{ display: cold7hid }}>{cold7}</td>
+            <td className='setWidth concat' style={{ display: cold8hid }}>{cold8}</td>
+            <td className='setWidth concat' style={{ display: cold9hid }}>{cold9}</td>
+            <td className='setWidth concat' style={{ display: cold10hid }}>{cold10}</td>
+            <td className='setWidth concat' style={{ display: cold11hid }}>{cold11}</td>
+            <td className='setWidth concat' style={{ display: cold12hid }}>{cold12}</td>
+          </tr>
+        </>
       )
     });
 
@@ -167,7 +179,7 @@ function EditorWebContent() {
     setCurrentPage(0);
     switch (type) {
       case 'flight':
-        axios.get('http://localhost:8070/flights')
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/flights`)
           .then((res) => {
             setArray(res.data);
           })
@@ -176,7 +188,7 @@ function EditorWebContent() {
           });
         break;
       case 'hotel':
-        axios.get('http://localhost:8070/hotels')
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/hotels`)
           .then((res) => {
             setArray(res.data);
           })
@@ -185,7 +197,7 @@ function EditorWebContent() {
           });
         break;
       case 'destination':
-        axios.get('http://localhost:8070/destination')
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/destination`)
           .then((res) => {
             setArray(res.data);
           })
@@ -194,7 +206,7 @@ function EditorWebContent() {
           });
         break;
       case 'taxi':
-        axios.get('http://localhost:8070/vehicles')
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/vehicles`)
           .then((res) => {
             setArray(res.data);
           })
@@ -203,9 +215,19 @@ function EditorWebContent() {
           });
         break;
       case 'package':
-        axios.get('http://localhost:8070/packages')
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/packages`)
           .then((res) => {
             setArray(res.data);
+          })
+          .catch((err) => {
+            alert(err);
+          });
+        break;
+      case 'cultures':
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/culture`)
+          .then((res) => {
+            setArray(res.data);
+            console.log(array, ' asd');
           })
           .catch((err) => {
             alert(err);
@@ -217,7 +239,7 @@ function EditorWebContent() {
   function deleteBooking(bid) {
     switch (type) {
       case 'flight':
-        axios.delete(`http://localhost:8070/flights/remove/${bid}`)
+        axios.delete(`${process.env.REACT_APP_BACKEND_URL}/flights/remove/${bid}`)
           .then((res) => {
             getArray();
           })
@@ -226,7 +248,7 @@ function EditorWebContent() {
           });
         break;
       case 'hotel':
-        axios.delete(`http://localhost:8070/hotels/remove/${bid}`)
+        axios.delete(`${process.env.REACT_APP_BACKEND_URL}/hotels/remove/${bid}`)
           .then((res) => {
             getArray();
           })
@@ -235,7 +257,7 @@ function EditorWebContent() {
           });
         break;
       case 'destination':
-        axios.delete(`http://localhost:8070/destination/delete/${bid}`)
+        axios.delete(`${process.env.REACT_APP_BACKEND_URL}/destination/delete/${bid}`)
           .then((res) => {
             getArray();
           })
@@ -244,7 +266,7 @@ function EditorWebContent() {
           });
         break;
       case 'taxi':
-        axios.delete(`http://localhost:8070/vehicles/delete/${bid}`)
+        axios.delete(`${process.env.REACT_APP_BACKEND_URL}/vehicles/delete/${bid}`)
           .then((res) => {
             getArray();
           })
@@ -253,7 +275,16 @@ function EditorWebContent() {
           });
         break;
       case 'package':
-        axios.delete(`http://localhost:8070/packages/delete/${bid}`)
+        axios.delete(`${process.env.REACT_APP_BACKEND_URL}/packages/delete/${bid}`)
+          .then((res) => {
+            getArray();
+          })
+          .catch((err) => {
+            alert(err);
+          });
+        break;
+      case 'cultures':
+        axios.delete(`${process.env.REACT_APP_BACKEND_URL}/culture/delete/${bid}`)
           .then((res) => {
             getArray();
           })
@@ -265,6 +296,7 @@ function EditorWebContent() {
   }
 
   function SetData(props) {
+    console.log(props, "dasdasd");
     switch (type) {
       case 'flight':
         cold1 = props.flightId;
@@ -277,8 +309,8 @@ function EditorWebContent() {
         cold8 = props.departureTime;
         cold9 = props.airline;
         cold10hid = 'none';
-        cold11 = <Link className='updatebttn' to={"/editorDashboard/flightUpdateForm/"+props._id}><span className="material-symbols-outlined">edit</span></Link>;
-        cold12 = <button className='deletebttn' onClick={() => {if (window.confirm('Do you really want to delete these record? This process cannot be undone.')) deleteBooking(props._id) }}><span className="material-symbols-outlined">delete</span></button>;
+        cold11 = <Link className='updatebttn' to={"/editorDashboard/flightUpdateForm/" + props._id}><span className="material-symbols-outlined">edit</span></Link>;
+        cold12 = <button className='deletebttn' onClick={() => { if (window.confirm('Do you really want to delete these record? This process cannot be undone.')) deleteBooking(props._id) }}><span className="material-symbols-outlined">delete</span></button>;
         addbttn = <Link to={'/editorDashboard/flightForm'}><button className='editorOverviewprintBtn'>Add</button></Link>
         break;
       case 'hotel':
@@ -292,7 +324,7 @@ function EditorWebContent() {
         cold8hid = 'none';
         cold9hid = 'none';
         cold10hid = 'none';
-        cold11 = <Link className='updatebttn' to={"/editorDashboard/hotelUpdateForm/"+props._id}><span className="material-symbols-outlined">edit</span></Link>;
+        cold11 = <Link className='updatebttn' to={"/editorDashboard/hotelUpdateForm/" + props._id}><span className="material-symbols-outlined">edit</span></Link>;
         cold12 = <button className='deletebttn' onClick={() => deleteBooking(props._id)}><span className="material-symbols-outlined">delete</span></button>;
         addbttn = <Link to={'/editorDashboard/hotelForm'}><button className='editorOverviewprintBtn'>Add</button></Link>
         break;
@@ -307,8 +339,8 @@ function EditorWebContent() {
         cold8hid = 'none';
         cold9hid = 'none';
         cold10hid = 'none';
-        cold11 = <Link className='updatebttn' to={"/editorDashboard/destinationUpdateForm/"+props._id}><span className="material-symbols-outlined">edit</span></Link>;
-        cold12 = <button className='deletebttn' onClick={() => {if (window.confirm('Do you really want to delete these record? This process cannot be undone.')) deleteBooking(props._id) }}><span className="material-symbols-outlined">delete</span></button>;
+        cold11 = <Link className='updatebttn' to={"/editorDashboard/destinationUpdateForm/" + props._id}><span className="material-symbols-outlined">edit</span></Link>;
+        cold12 = <button className='deletebttn' onClick={() => { if (window.confirm('Do you really want to delete these record? This process cannot be undone.')) deleteBooking(props._id) }}><span className="material-symbols-outlined">delete</span></button>;
         addbttn = <Link to={'/editorDashboard/destinationForm'}><button className='editorOverviewprintBtn'>Add</button></Link>
         break;
       case 'taxi':
@@ -322,8 +354,8 @@ function EditorWebContent() {
         cold8hid = 'none';
         cold9hid = 'none';
         cold10hid = 'none';
-        cold11 = <Link className='updatebttn' to={"/editorDashboard/vehicleUpdateForm/"+props._id}><span className="material-symbols-outlined">edit</span></Link>;
-        cold12 = <button className='deletebttn' onClick={() => {if (window.confirm('Do you really want to delete these record? This process cannot be undone.')) deleteBooking(props._id) }}><span className="material-symbols-outlined">delete</span></button>;
+        cold11 = <Link className='updatebttn' to={"/editorDashboard/vehicleUpdateForm/" + props._id}><span className="material-symbols-outlined">edit</span></Link>;
+        cold12 = <button className='deletebttn' onClick={() => { if (window.confirm('Do you really want to delete these record? This process cannot be undone.')) deleteBooking(props._id) }}><span className="material-symbols-outlined">delete</span></button>;
         addbttn = <Link to={'/editorDashboard/vehicleForm'}><button className='editorOverviewprintBtn'>Add</button></Link>
         break;
       case 'package':
@@ -337,11 +369,26 @@ function EditorWebContent() {
         cold8 = props.price;
         cold9hid = 'none';
         cold10hid = 'none';
-     
 
-        cold11 = <Link className='updatebttn' to={"/editorDashboard/packageUpdateForm/"+props._id}><span className="material-symbols-outlined">edit</span></Link>;
-        cold12 = <button className='deletebttn' onClick={() => {if (window.confirm('Do you really want to delete these record? This process cannot be undone.')) deleteBooking(props._id) }}><span className="material-symbols-outlined">delete</span></button>;
+        cold11 = <Link className='updatebttn' to={"/editorDashboard/packageUpdateForm/" + props._id}><span className="material-symbols-outlined">edit</span></Link>;
+        cold12 = <button className='deletebttn' onClick={() => { if (window.confirm('Do you really want to delete these record? This process cannot be undone.')) deleteBooking(props._id) }}><span className="material-symbols-outlined">delete</span></button>;
         addbttn = <Link to={'/editorDashboard/packageForm'}><button className='editorOverviewprintBtn'>Add</button></Link>
+        break;
+      case 'cultures':
+        cold1 = props.name;
+        cold2 = props.month;
+        cold3 = props.location;
+        cold4hid = 'none';
+        cold5hid = 'none';
+        cold6hid = 'none';
+        cold7hid = 'none';
+        cold8hid = 'none';
+        cold9hid = 'none';
+        cold10hid = 'none';
+
+        cold11 = <Link className='updatebttn' to={"/editorDashboard/cultureUpdateForm/" + props._id}><span className="material-symbols-outlined">edit</span></Link>;
+        cold12 = <button className='deletebttn' onClick={() => { if (window.confirm('Do you really want to delete these record? This process cannot be undone.')) deleteBooking(props._id) }}><span className="material-symbols-outlined">delete</span></button>;
+        addbttn = <Link to={'/editorDashboard/cultureForm'}><button className='editorOverviewprintBtn'>Add</button></Link>
         break;
     }
   }
@@ -417,6 +464,21 @@ function EditorWebContent() {
       col6 = 'Room Type';
       col7 = 'Guide';
       col8 = 'Price';
+      col9hid = 'none';
+      col10hid = 'none';
+      col11 = 'Update';
+      col12 = 'Delete';
+      break;
+    case ('cultures'):
+      topicType = 'Cultural Scenarios';
+      col1 = 'Name';
+      col2 = 'Month';
+      col3 = 'Location';
+      col4hid = 'none';
+      col5hid = 'none';
+      col6hid = 'none';
+      col7hid = 'none';
+      col8hid = 'none';
       col9hid = 'none';
       col10hid = 'none';
       col11 = 'Update';

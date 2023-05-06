@@ -31,7 +31,7 @@ function RentalUpdateForm() {
   const getRental = () => {
     console.log(rentalId);
     axios
-      .get("http://localhost:8070/rental/" + rentalId)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/rental/` + rentalId)
       .then((res) => {
         console.log(res.data);
         setFirstName(res.data.firstName);
@@ -68,7 +68,7 @@ function RentalUpdateForm() {
 
   const getDestination = async () => {
     await axios
-      .get("http://localhost:8070/destination/")
+      .get(`${process.env.REACT_APP_BACKEND_URL}/destination/`)
       .then((res) => {
         setDestination(res.data);
       })
@@ -83,7 +83,7 @@ function RentalUpdateForm() {
 
   const getHotel = async () => {
     await axios
-      .get("http://localhost:8070/hotels/")
+      .get(`${process.env.REACT_APP_BACKEND_URL}/hotels/`)
       .then((res) => {
         setHotel(res.data);
       })
@@ -116,7 +116,7 @@ function RentalUpdateForm() {
             };
 
             axios
-              .put(`http://localhost:8070/rental/update/${rentalId}`, newRental)
+              .put(`${process.env.REACT_APP_BACKEND_URL}/rental/update/${rentalId}`, newRental)
               .then(() => {
                 alert("Rental updated successfully");
                 navigate(`/clientDashboard/${id}/bookings/taxi`);

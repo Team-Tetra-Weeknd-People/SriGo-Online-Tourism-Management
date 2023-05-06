@@ -27,7 +27,7 @@ function Home() {
 
   if (user) {
     axios
-      .get(`http://localhost:8070/client/getClientInfo/${user?.email}`)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/client/getClientInfo/${user?.email}`)
       .then((client) => {
         setId(client.data._id);
       })

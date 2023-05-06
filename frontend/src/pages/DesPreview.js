@@ -18,7 +18,7 @@ function DesPreview() {
 
   const getAttraction = async () => {
     await axios
-      .get("http://localhost:8070/destination/" + id)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/destination/` + id)
       .then((res) => {
         setAttraction(res.data);
       })
