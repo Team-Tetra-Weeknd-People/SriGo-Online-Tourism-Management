@@ -1,5 +1,5 @@
-import Home  from './Home';
-import EditorDashboard  from './EditorDashboard';
+import Home from './Home';
+import EditorDashboard from './EditorDashboard';
 import Flights from "./Flights";
 import Hotels from "./Hotels";
 import Attractions from "./Attractions";
@@ -46,7 +46,7 @@ import DestinationBookings from './DestinationBookings';
 import HotelResForm from './HotelResForm';
 import FlightResForm from './FlightResForm';
 import FeedbackForm from './FeedbackForm';
-import RentalForm from '../pages/RentalForm'; 
+import RentalForm from '../pages/RentalForm';
 import RentalPreview from '../pages/RentalPreview';
 import CeoDashboard from './CeoDashboard';
 import SharedLayoutCeoDashboard from './SharedLayoutCeoDashboard';
@@ -70,6 +70,9 @@ import InvoiceUpdateForm from './InvoiceUpdateForm';
 import FlightTicketView from './FlightTicketView';
 import RentalUpdateForm from './RentalUpdateForm';
 import FeedbackUpdateForm from './FeedbackUpdateForm';
+import Culture from './Culture';
+import CultureForm from './CultureForm';
+import CultureUpdateForm from './CultureUpdateForm';
 
 export {
     Home,
@@ -144,5 +147,8 @@ export {
     InvoiceUpdateForm,
     FlightTicketView,
     RentalUpdateForm,
-    FeedbackUpdateForm
+    FeedbackUpdateForm,
+    Culture,
+    CultureForm,
+    CultureUpdateForm
 };

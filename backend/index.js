@@ -18,6 +18,7 @@ import vehicleRoutes from './routes/vehicles.js'
 import feedbackRouter from "./routes/feedback.js";
 import packageReservation from "./routes/packageReservation.js";
 import invoiceRouter from "./routes/invoice.js";
+import cultureRouter from "./routes/culture.js";
 
 const app = express();
 const PORT = process.env.PORT || 8070;
@@ -38,6 +39,7 @@ app.use('/vehicles', vehicleRoutes);
 app.use("/feedback", feedbackRouter);
 app.use("/packageReservation", packageReservation);
 app.use("/invoice", invoiceRouter);
+app.use("/culture", cultureRouter);
 
 
 app.use(session({

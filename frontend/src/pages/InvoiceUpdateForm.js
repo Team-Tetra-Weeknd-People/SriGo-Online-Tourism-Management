@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import { storage } from '../firebase';
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
 import '../styles/chanudi/invoiceForm.css';
 
 
@@ -42,11 +40,6 @@ function InvoiceUpdateForm() {
             <div className="InvoiceForm">
                 <form onSubmit={async (e) => {
                     e.preventDefault();
-
-
-
-
-
                     const newInvoice = {
                         fName,
                         email,
@@ -58,8 +51,8 @@ function InvoiceUpdateForm() {
 
                     axios.put(`${process.env.REACT_APP_BACKEND_URL}/invoice/update/` + id, newInvoice)
                         .then(() => {
-                            alert("Package updated successfully");
-
+                            alert("Invoice updated successfully");
+                            window.location = '/financeDashboard/invoice';
                         }).catch((err) => {
                             alert(err);
                         })
