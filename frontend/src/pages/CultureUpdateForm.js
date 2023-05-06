@@ -2,7 +2,9 @@ import { useState } from 'react';
 import axios from 'axios';
 import { storage } from '../firebase';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
+import { useParams } from 'react-router-dom';
 import '../styles/randula/PackageForm.css'
+import { useEffect } from 'react';
 
 function CultureUpdateForm() {
     const [name, setName] = useState('');
@@ -11,11 +13,26 @@ function CultureUpdateForm() {
     const [location, setLocation] = useState('');
     const [image, setImage] = useState('');
 
+    const { id } = useParams();
+
+    useEffect(() => {
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/culture/` + id)
+            .then((res) => {
+                setName(res.data.name);
+                setMonth(res.data.month);
+                setDescription(res.data.description);
+                setLocation(res.data.location);
+                setImage(res.data.image);
+            })
+            .catch((err) => {
+                alert(err);
+            });
+    }, []);
 
 
     return (
         <div className='PackageFormMainCont'>
-            <h1>Add Package Details</h1>
+            <h1>Update Package Details</h1>
             <div className="PackageForm">
                 <br />
                 <form onSubmit={async (e) => {
@@ -42,12 +59,12 @@ function CultureUpdateForm() {
                                 image: url
                             }
 
-                            axios.post(`${process.env.REACT_APP_BACKEND_URL}/culture/create`, newCulture)
+                            axios.put(`${process.env.REACT_APP_BACKEND_URL}/culture/update/` + id, newCulture)
                                 .then(() => {
-                                    alert("Culture Content added successfully");
+                                    alert("Culture Content Updated successfully");
                                     window.location = '/editorDashboard/editorWebContent/cultures';
                                 }).catch((err) => {
-                                    alert("Error adding Culture Content");
+                                    alert("Error Updated Culture Content");
                                     console.log(err);
                                 })
                         }).catch((err) => {
@@ -58,6 +75,7 @@ function CultureUpdateForm() {
                     <div className="form-group">
                         <label className="form-label">Enter Culture Name</label>
                         <input type="text" className="form-control" pattern="[a-z]+[0-9]+[+[a-z]+]"
+                            defaultValue={name}
                             onChange={(e) => {
                                 setName(e.target.value);
                             }} required />
@@ -66,6 +84,7 @@ function CultureUpdateForm() {
                     <div className="form-group">
                         <label className="form-label">Specific Location</label>
                         <input type="text" className="form-control"
+                            defaultValue={location}
                             onChange={(e) => {
                                 setLocation(e.target.value);
                             }} required />
@@ -74,6 +93,7 @@ function CultureUpdateForm() {
                     <div className="form-group">
                         <label className="form-label">Description</label>
                         <input type="text" className="form-control"
+                            defaultValue={description}
                             onChange={(e) => {
                                 setDescription(e.target.value);
                             }} required />
@@ -81,9 +101,11 @@ function CultureUpdateForm() {
 
                     <div className="form-group">
                         <label className="form-label">Specific Month</label>
-                        <select className="form-control" onChange={(e) => {
-                            setMonth(e.target.value);
-                        }} required>
+                        <select className="form-control"
+                            defaultValue={month}
+                            onChange={(e) => {
+                                setMonth(e.target.value);
+                            }} required>
                             <option value="January" selected="selected">January</option>
                             <option value="February">February</option>
                             <option value="March">March</option>
@@ -102,6 +124,7 @@ function CultureUpdateForm() {
                     <div className="form-group">
                         <label className="form-label">Add Image</label>
                         <input type="file" className="form-control"
+                            defaultValue={image}
                             onChange={(e) => {
                                 setImage(e.target.files[0]);
                             }} required />
