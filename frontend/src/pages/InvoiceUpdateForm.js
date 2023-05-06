@@ -40,7 +40,6 @@ function InvoiceUpdateForm() {
             <div className="InvoiceForm">
                 <form onSubmit={async (e) => {
                     e.preventDefault();
-
                     const newInvoice = {
                         fName,
                         email,
@@ -54,7 +53,6 @@ function InvoiceUpdateForm() {
                         .then(() => {
                             alert("Invoice updated successfully");
                             window.location = '/financeDashboard/invoice';
-
                         }).catch((err) => {
                             alert(err);
                         })
