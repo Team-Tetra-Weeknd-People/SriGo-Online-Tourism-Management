@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function EditorDashSidebar() {
   return (
-    <div className='EditorDashSidebarMainCont'>
+    <div className='EditorDashSidebarMainCont' data-testid="editordashsidebar">
       <div className='EditorDSLogoCont'>
         <center>
           <img src={'https://firebasestorage.googleapis.com/v0/b/srigo-c895d.appspot.com/o/%5BCROPPED%5DLETTERS%20ONLY%20TRANSPARENT.png?alt=media&token=d9c540ba-f0e6-41e0-8e7c-ddd87d9c8b27'} alt='logo' />
