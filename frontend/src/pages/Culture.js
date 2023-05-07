@@ -51,7 +51,7 @@ function Culture() {
                     <Modal.Title>{culture.name}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Card style={{ width: '18rem' }}>
+                    <Card style={{ width: '22rem' }}>
                         <Card.Img variant="top" src={culture.image} />
                         <Card.Body>
                             <Card.Title>{culture.location}</Card.Title>
