@@ -35,7 +35,7 @@ function VehiclesEdit() {
   useEffect(() => { getVehicle() } , []);  //Shows changes of the page
 
   return (
-    <div className='container text-center'>
+    <div className='container text-center' data-testid="vehiclesedit">
       <h1 className='text-center'>Vehicle</h1>
 
       <div className='container d-flex flex-wrap' style={{ width: '80%'}}>

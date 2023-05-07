@@ -21,7 +21,7 @@ function VehicleForm() {
   const navigate = useNavigate();
 
   return (
-    <div className="VehicleFormMainCont">
+    <div className="VehicleFormMainCont" data-testid="vehicleform">
       <h1>Add Vehicle Details</h1>
       <div className="VehicleFormCont">
         <br />
