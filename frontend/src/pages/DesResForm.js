@@ -26,7 +26,7 @@ function DesResForm({ destination }) {
     "max-glare": 0.1,
   };
   return (
-    <div id="desresform" className="desresContainer">
+    <div id="desresform" className="desresContainer" data-testid="desresform">
       <h1 className="deresticketHeader">Buy a Ticket</h1>
       <div className="desreseinnercontainer">
         <div className="desrestcktcont">

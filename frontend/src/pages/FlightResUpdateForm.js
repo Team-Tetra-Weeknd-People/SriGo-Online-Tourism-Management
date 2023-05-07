@@ -22,7 +22,7 @@ function FlightResUpdateForm() {
     const [economy, setEconomy] = useState('');
     const [seat, setSeat] = useState('');
 
-    
+
 
     const { id } = useParams();
     const { flightResId } = useParams();
@@ -55,10 +55,10 @@ function FlightResUpdateForm() {
     };
 
     useEffect(() => { getReservation() }, []);
-    
+
 
     return (
-        <div className="FlightResUpdateFormMainCont">
+        <div className="FlightResUpdateFormMainCont" data-testid="flightresupdateform">
             <h1>Update Ticket Details</h1>
             <div className='FlightResUpdateFormCont'>
                 <form onSubmit={async (e) => {
@@ -70,7 +70,7 @@ function FlightResUpdateForm() {
                         email,
                         phoneNo,
                         passportID,
-                        price 
+                        price
                     };
 
                     axios.put(`${process.env.REACT_APP_BACKEND_URL}/flightTicket/update/${flightResId}`, newTicket)
@@ -95,39 +95,39 @@ function FlightResUpdateForm() {
                         <input type="text" className="form-control" value={lastName} onChange={(e) => { setLastName(e.target.value) }} required />
                     </div>
                     <div className="form-group">
-                <label className="form-label">Email</label>
-                <input type="email" className="form-control" value={email} onChange={(e) => {setEmail(e.target.value)}} required/>
-              </div>
-              <div className="form-group">
-                <label className="form-label">Phone Number</label>
-                <input type="text" className="form-control" value={phoneNo} min="0110000000" max="0799999999" onChange={(e) => {setPhoneNo(e.target.value)}} required/>
-              </div>
-              <div className="form-group">
-                <label className="form-label">Passport ID</label>
-                <input type="text" className="form-control" value={passportID} onChange={(e) => {setppID(e.target.value)}} required/>
-              </div>
-              <br/>
-              <button type="submit" className="submitbtn">Update</button>
-            </form>
-            <br/>
-            <div className='flightrestcktcont'>
-              <div className='flightrestckt'>
-              <center><h3>{flight}</h3>
-              <h5>{airline}</h5></center><br/>
-                <p>Starting Airport : {startAirport}</p>
-                <p>Departure Date : {depDate} (GMT+5.30)</p>
-                <p>Departure Time : {depTime} (GMT+5.30)</p>
-                <p>Destination Airport : {flightAirport}</p>
-                <p>Name : {firstName} {lastName}</p>
-                <p>Email Address : {email}</p>
-                <p>Phone Number : {phoneNo}</p>
-                <p>Passport ID : {passportID}</p>
-                <p>Class : {classType}</p> 
-                <p>Seat : {seat}</p>               
-                <br/>
-                <h3>Total : {price}</h3>
+                        <label className="form-label">Email</label>
+                        <input type="email" className="form-control" value={email} onChange={(e) => { setEmail(e.target.value) }} required />
+                    </div>
+                    <div className="form-group">
+                        <label className="form-label">Phone Number</label>
+                        <input type="text" className="form-control" value={phoneNo} min="0110000000" max="0799999999" onChange={(e) => { setPhoneNo(e.target.value) }} required />
+                    </div>
+                    <div className="form-group">
+                        <label className="form-label">Passport ID</label>
+                        <input type="text" className="form-control" value={passportID} onChange={(e) => { setppID(e.target.value) }} required />
+                    </div>
+                    <br />
+                    <button type="submit" className="submitbtn">Update</button>
+                </form>
+                <br />
+                <div className='flightrestcktcont'>
+                    <div className='flightrestckt'>
+                        <center><h3>{flight}</h3>
+                            <h5>{airline}</h5></center><br />
+                        <p>Starting Airport : {startAirport}</p>
+                        <p>Departure Date : {depDate} (GMT+5.30)</p>
+                        <p>Departure Time : {depTime} (GMT+5.30)</p>
+                        <p>Destination Airport : {flightAirport}</p>
+                        <p>Name : {firstName} {lastName}</p>
+                        <p>Email Address : {email}</p>
+                        <p>Phone Number : {phoneNo}</p>
+                        <p>Passport ID : {passportID}</p>
+                        <p>Class : {classType}</p>
+                        <p>Seat : {seat}</p>
+                        <br />
+                        <h3>Total : {price}</h3>
+                    </div>
                 </div>
-            </div>
             </div><br />
         </div>
     )

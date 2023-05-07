@@ -40,7 +40,7 @@ function Culture() {
     }, []);
 
     return (
-        <div className="flightMainContainer">
+        <div className="flightMainContainer" data-testid="culture">
             <Modal
                 show={show}
                 onHide={handleClose}

@@ -4,13 +4,13 @@ import { useParams } from 'react-router-dom';
 import '../styles/sudul/DestinationBookings.css';
 
 function DestinationBookings() {
-  var [ bookings, setBookings ] = useState([]);
-  var [ desName, setDesName ] = useState('');
+  var [bookings, setBookings] = useState([]);
+  var [desName, setDesName] = useState('');
 
   const { id } = useParams();
 
   const getBookings = async () => {
-    await axios.get(`${process.env.REACT_APP_BACKEND_URL}/desTicket/user/`+id)
+    await axios.get(`${process.env.REACT_APP_BACKEND_URL}/desTicket/user/` + id)
       .then((res) => {
         setBookings(res.data);
         console.log(res.data);
@@ -22,7 +22,7 @@ function DestinationBookings() {
 
   const getDestination = async (id) => {
     let destination = "";
-    await axios.get(`${process.env.REACT_APP_BACKEND_URL}/destination/`+id)
+    await axios.get(`${process.env.REACT_APP_BACKEND_URL}/destination/` + id)
       .then((res) => {
         // setDesName(res.data.name);
         return res.data.name;
@@ -34,21 +34,21 @@ function DestinationBookings() {
 
   const deleteBooking = (bid) => {
     axios.delete(`${process.env.REACT_APP_BACKEND_URL}/desTicket/delete/${bid}`)
-        .then((res) => {
-            getBookings();
-        })
-        .catch((err) => {
-            alert(err);
-        });
-    }
+      .then((res) => {
+        getBookings();
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  }
 
   useEffect(() => { getBookings() }, [id]);
 
   return (
-    <div className='desBookCont'>
+    <div className='desBookCont' data-testid="destinatonbooking">
       <div className='desSearch'>
         <form className='desSearchForm'>
-          <input type="text" placeholder='Search here'/>
+          <input type="text" placeholder='Search here' />
           <button type='submit'><span className="material-symbols-outlined">search</span></button>
         </form>
       </div>
@@ -83,9 +83,10 @@ function DestinationBookings() {
                     <span className="material-symbols-outlined">Delete</span>
                   </button></td>
                 </tr>
-              )})
+              )
+            })
             }
-            </tbody>
+          </tbody>
         </table>
       </div>
     </div>

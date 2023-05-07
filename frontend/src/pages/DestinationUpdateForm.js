@@ -59,7 +59,7 @@ function DestinationUpdateForm() {
   // useEffect(() => { handleCheck() }, [isChecked]);
 
   return (
-    <div className="DestinationUpdateFormMainCont">
+    <div className="DestinationUpdateFormMainCont" data-testid="destinationupdateform">
       <h1>Update Travel Destination</h1>
       <div className="DestinationUpdateFormCont">
         <form
@@ -160,7 +160,7 @@ function DestinationUpdateForm() {
               onChange={(e) => {
                 setLocation(e.target.value);
               }}
-              required 
+              required
             />
           </div>
           <div className="form-group">

@@ -54,7 +54,7 @@ function Flights() {
   }, []);
 
   return (
-    <div className="flightMainContainer">
+    <div className="flightMainContainer" data-testid="flights">
       <NavbarDark />
       <div className="flightInnerContainer">
         <h1 className="flightHeader">Flights</h1>
@@ -231,9 +231,9 @@ function Flights() {
                           </div>
                           <div className="col-6" style={{ textAlign: "end" }}>
                             <h5>
-                            <span class="material-symbols-outlined">
-                              person_filled
-                            </span>
+                              <span class="material-symbols-outlined">
+                                person_filled
+                              </span>
                               {"  "}
                               <b>Rs {data.economyClass}.00</b>
                             </h5>
