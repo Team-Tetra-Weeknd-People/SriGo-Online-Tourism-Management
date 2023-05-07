@@ -1,7 +1,4 @@
 import { Outlet, Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import NavbarDark from "../components/NavbarDark";
-import Button from "react-bootstrap/esm/Button";
 
 function SharedLayoutHome() {
   return (

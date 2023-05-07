@@ -32,7 +32,7 @@ function CultureUpdateForm() {
 
     return (
         <div className='PackageFormMainCont'>
-            <h1>Update Package Details</h1>
+            <h1>Update Cultural Scenario Details</h1>
             <div className="PackageForm">
                 <br />
                 <form onSubmit={async (e) => {

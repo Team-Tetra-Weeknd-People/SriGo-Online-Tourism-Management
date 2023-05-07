@@ -15,7 +15,7 @@ function CultureForm() {
 
     return (
         <div className='PackageFormMainCont'>
-            <h1>Add Package Details</h1>
+            <h1>Add Cultural Scenario Details</h1>
             <div className="PackageForm">
                 <br />
                 <form onSubmit={async (e) => {
