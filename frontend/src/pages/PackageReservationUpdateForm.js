@@ -5,17 +5,17 @@ import '../styles/randula/PackageResUpdateForm.css'
 
 
 
-function PackageReservationUpdateForm({}) {
-    const {id} = useParams();
-  const { packageReservationId } = useParams();
-  const [name, setName] = useState('');
-  const [date, setDate] = useState('');
-  const [email, setEmail] = useState('');
-  const [phoneNo, setphoneNo]=useState('');
- // const { packageReservationId } = useParams();
-    
+function PackageReservationUpdateForm({ }) {
+    const { id } = useParams();
+    const { packageReservationId } = useParams();
+    const [name, setName] = useState('');
+    const [date, setDate] = useState('');
+    const [email, setEmail] = useState('');
+    const [phoneNo, setphoneNo] = useState('');
+    // const { packageReservationId } = useParams();
 
-  
+
+
     const navigate = useNavigate();
 
     const getpackageReservation = () => {
@@ -25,7 +25,7 @@ function PackageReservationUpdateForm({}) {
                 setDate(res.data.date);
                 setEmail(res.data.email);
                 setphoneNo(res.data.phoneNo);
-           
+
             })
             .catch((err) => {
                 alert(err);
@@ -35,7 +35,7 @@ function PackageReservationUpdateForm({}) {
     useEffect(() => { getpackageReservation() }, []);
 
     return (
-        <div className="PackageResUpdateFormMainCont">
+        <div className="PackageResUpdateFormMainCont" data-testid="packagereservationupdateform">
             <h1>Update Package Reservation Details</h1>
             <div className='PackageResUpdateFormCont'>
                 <form onSubmit={async (e) => {
@@ -66,16 +66,16 @@ function PackageReservationUpdateForm({}) {
                         <input type="date" className="form-control" value={date} onChange={(e) => { setDate(e.target.value) }} required />
                     </div>
                     <div className="form-group">
-                <label className="form-label">Email</label>
-                <input type="email" className="form-control"pattern="[a-z0-9]+@+[a-z]+.com" value={email} onChange={(e) => {setEmail(e.target.value)}} required/>
-              </div>
-              <div className="form-group">
-                <label className="form-label">Phone Number</label>
-                <input type="number" className="form-control" value={phoneNo} min ="100000000" max="790000000" onChange={(e) => {setphoneNo(e.target.value)}} required/>
-              </div>
-              <br/>
-              <button type="submit" className="submitbtn">Submit</button>
-            </form>
+                        <label className="form-label">Email</label>
+                        <input type="email" className="form-control" pattern="[a-z0-9]+@+[a-z]+.com" value={email} onChange={(e) => { setEmail(e.target.value) }} required />
+                    </div>
+                    <div className="form-group">
+                        <label className="form-label">Phone Number</label>
+                        <input type="number" className="form-control" value={phoneNo} min="100000000" max="790000000" onChange={(e) => { setphoneNo(e.target.value) }} required />
+                    </div>
+                    <br />
+                    <button type="submit" className="submitbtn">Submit</button>
+                </form>
             </div><br />
         </div>
     )

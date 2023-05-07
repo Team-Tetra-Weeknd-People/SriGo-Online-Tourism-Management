@@ -69,7 +69,7 @@ function UserProfile() {
   // console.log(client);
 
   return (
-    <div className="profilecontainer w-100">
+    <div className="profilecontainer w-100" data-testid="userprofile">
       <div className="userprofiletopic">
         <h1>User Profile</h1>{" "}
       </div>

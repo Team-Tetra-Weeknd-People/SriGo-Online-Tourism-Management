@@ -8,10 +8,10 @@ function FinanceFlightUpdateForm() {
     const [economyClass, setEconomy] = useState('');
     const [businessClass, setBusiness] = useState('');
 
-    const {id} = useParams();
+    const { id } = useParams();
     const navigate = useNavigate();
-  
-    const getUniqueFlight = () => {   
+
+    const getUniqueFlight = () => {
         axios.get(`${process.env.REACT_APP_BACKEND_URL}/flights/` + id)
             .then((res) => {
                 setName(res.data.name);
@@ -22,11 +22,11 @@ function FinanceFlightUpdateForm() {
                 alert(err);
             });
     };
-    
+
     useEffect(() => { getUniqueFlight() }, []);
 
     return (
-        <div className='FlightUpdateFormMainCont'>
+        <div className='FlightUpdateFormMainCont' data-testid="financeflightupdateform">
             <h1>Update Flight Financial Details</h1>
             <div className="FlightUpdateFormCont">
                 <form onSubmit={async (e) => {
@@ -46,15 +46,15 @@ function FinanceFlightUpdateForm() {
 
                     <div className="form-group">
                         <label className="form-label">Name</label>
-                        <input type="text" className="form-control" value={name}  readOnly/>
+                        <input type="text" className="form-control" value={name} readOnly />
                     </div>
                     <div className="form-group">
                         <label className="form-label">Economy Class Ticket Price</label>
-                        <input type="text" className="form-control" value={economyClass} onChange={(e) => { setEconomy(e.target.value) }} required/>
+                        <input type="text" className="form-control" value={economyClass} onChange={(e) => { setEconomy(e.target.value) }} required />
                     </div>
                     <div className="form-group">
                         <label className="form-label">Business Class Ticket Price</label>
-                        <input type="text" className="form-control" value={businessClass} onChange={(e) => { setBusiness(e.target.value) }} required/>
+                        <input type="text" className="form-control" value={businessClass} onChange={(e) => { setBusiness(e.target.value) }} required />
                     </div>
                     <br />
                     <button type="submit" className="btn btn-dark">Submit</button><br /><br />
