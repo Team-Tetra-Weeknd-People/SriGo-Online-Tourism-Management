@@ -1,6 +1,8 @@
 # SriGo-Online-Tourism-Management
 
-## SriGo is a Sri Lankan Tourism Management Web Application that is developed to facilitate not only the foreign tourists, but also the local travelers to explore the travelling features.
+##
+
+SriGo is a Sri Lankan Tourism Management Web Application that is developed to facilitate not only the foreign tourists, but also the local travelers to explore the travelling features.
 
 ##
 
