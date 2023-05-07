@@ -35,7 +35,7 @@ function InvoiceUpdateForm() {
     useEffect(() => { newInvoice() }, []);
 
     return (
-        <div className='InvoiceFormMainCont'>
+        <div className='InvoiceFormMainCont' data-testid="invoiceupdateform">
             <h1>Update Invoice </h1>
             <div className="InvoiceForm">
                 <form onSubmit={async (e) => {

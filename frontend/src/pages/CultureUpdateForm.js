@@ -31,7 +31,7 @@ function CultureUpdateForm() {
 
 
     return (
-        <div className='PackageFormMainCont'>
+        <div className='PackageFormMainCont' data-testid="cultueupdateform">
             <h1>Update Cultural Scenario Details</h1>
             <div className="PackageForm">
                 <br />

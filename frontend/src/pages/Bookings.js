@@ -336,7 +336,7 @@ function Bookings() {
             };
 
             axios
-              .put(`${process.env.REACT_APP_BACKEND_URL}/flights/update/`+ ofid, tickFlight)
+              .put(`${process.env.REACT_APP_BACKEND_URL}/flights/update/` + ofid, tickFlight)
               .then(() => {
                 alert("Flight updated successfully");
               })
@@ -371,7 +371,7 @@ function Bookings() {
             };
 
             axios
-              .put(  + ofid, tickFlight)
+              .put(+ ofid, tickFlight)
               .then(() => {
                 alert("Flight updated successfully");
               })
@@ -633,7 +633,7 @@ function Bookings() {
                   "Do you really want to delete these record? This process cannot be undone."
                 )
               )
-              deleteBooking(props._id)
+                deleteBooking(props._id)
             }}
           >
             <span className="material-symbols-outlined">delete</span>
@@ -764,7 +764,7 @@ function Bookings() {
   }, [type]);
 
   return (
-    <div className="BookingsMainCont">
+    <div className="BookingsMainCont" data-testid="bookings">
       <h1>{topicType} Bookings</h1>
       <div className="BookingsDashSearch">
         <input

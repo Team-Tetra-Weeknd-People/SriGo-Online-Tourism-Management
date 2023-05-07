@@ -62,7 +62,7 @@ function DesResUpdateForm() {
   }, []);
 
   return (
-    <div className="DesResUpdateFormMainCont">
+    <div className="DesResUpdateFormMainCont" data-testid="desresupdateform">
       <h1>Update Ticket Details</h1>
       <div className="DesResUpdateFormCont">
         <form
