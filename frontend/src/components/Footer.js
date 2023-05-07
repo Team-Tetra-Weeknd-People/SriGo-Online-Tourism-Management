@@ -5,7 +5,7 @@ import Navbarx from "react-bootstrap/Navbar";
 
 function Footer() {
   return (
-    <div className="footerCont">
+    <div className="footerCont" data-testid="footer">
       <img
         style={{ width: "100px", height: "auto" }}
         src={
@@ -15,7 +15,7 @@ function Footer() {
       />
       © 2023 SriGo.
       <p style={{ fontSize: "12px", marginTop: "4px" }}>
-      SriGo is part of SriGo Holdings Inc., the world leader in online
+        SriGo is part of SriGo Holdings Inc., the world leader in online
         travel & related services.
       </p>
       {/* <div className="blurContainer" /> */}
