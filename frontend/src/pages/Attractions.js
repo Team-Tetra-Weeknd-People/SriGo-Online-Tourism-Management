@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 
 function Attractions() {
   return (
-    <div className="attractionsContainer">
+    <div className="attractionsContainer" data-testid="attractions">
       <div className="attImgContainer">
         <div className="attblurContainer" />
         <h1>Attractions</h1>

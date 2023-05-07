@@ -17,7 +17,7 @@ function FeedbackForm() {
 
 
     return (
-        <div className='FeedbackMainCont'>
+        <div className='FeedbackMainCont' data-testid="feedbackform">
             <h1>Feedback Management System</h1>
             <div className="feedbackCont">
                 <br />

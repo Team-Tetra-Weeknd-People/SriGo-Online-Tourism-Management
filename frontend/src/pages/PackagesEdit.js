@@ -33,7 +33,7 @@ function PackagesEdit() {
   useEffect(() => { getPackages() }, []);  //Shows changes of the page
 
   return (
-    <div className='Package-text-center'>
+    <div className='Package-text-center' data-testid="packageedit">
       <h1 className='PackageIcon'>Packages Edit</h1>
       <form>
         <div className='container d-flex flex-wrap' style={{ width: '80%' }}>

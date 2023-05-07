@@ -21,7 +21,7 @@ function FlightForm() {
     const navigate = useNavigate();
 
     return (
-        <div className='FlightFormMainCont'>
+        <div className='FlightFormMainCont' data-testid="flightsform">
             <h1>Add Flight Content</h1>
             <div className="FlightFormCont">
 

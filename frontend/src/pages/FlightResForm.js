@@ -124,7 +124,7 @@ function FlightResForm() {
   const navigate = useNavigate();
 
   return (
-    <div id="flightresform" className="flightresContainer">
+    <div id="flightresform" className="flightresContainer" data-testid="flightresform">
       <NavbarDark />
       <br />
       <h1>Flight Reservation</h1>
@@ -173,14 +173,14 @@ function FlightResForm() {
                     }
                     bookedseats[flight.bookedSeatsEconomy.length] =
                       sessionStorage.getItem("value");
-    
+
                     // bookedseats.append();
                     const tickFlight = {
                       bookedSeatsEconomy: bookedseats,
                     };
-    
+
                     axios
-                      .put(`${process.env.REACT_APP_BACKEND_URL}/flights/update/ `+ id, tickFlight)
+                      .put(`${process.env.REACT_APP_BACKEND_URL}/flights/update/ ` + id, tickFlight)
                       .then(() => {
                         alert("Flight updated successfully");
                         sessionStorage.removeItem("value");
@@ -195,12 +195,12 @@ function FlightResForm() {
                     }
                     bookedseats[flight.bookedSeatsBusiness.length] =
                       sessionStorage.getItem("value");
-    
+
                     // bookedseats.append();
                     const tickFlight = {
                       bookedSeatsBusiness: bookedseats,
                     };
-    
+
                     axios
                       .put(`${process.env.REACT_APP_BACKEND_URL}/flights/update/` + id, tickFlight)
                       .then(() => {
@@ -219,7 +219,7 @@ function FlightResForm() {
                   console.log(err);
                 });
 
-              
+
             }}
           >
             <div className="form-group">

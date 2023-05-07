@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 
-function FinanceEdit() { 
+function FinanceEdit() {
   const [finance, setFinance] = useState([]);
 
   const getFinance = () => {
@@ -18,43 +18,43 @@ function FinanceEdit() {
   }
 
   const deleteFinance = (id) => {
-    axios.delete(`${process.env.REACT_APP_BACKEND_URL}/finance/remove/${id}`)  
-        .then((res) => {
-            alert("Flight Content Deleted");
-            getFinance();
-        })
-        .catch((err) => {
-            alert(err);
-        });
-    }
+    axios.delete(`${process.env.REACT_APP_BACKEND_URL}/finance/remove/${id}`)
+      .then((res) => {
+        alert("Flight Content Deleted");
+        getFinance();
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  }
 
   useEffect(() => { getFinance() });  //Shows changes of the page
 
   return (
-    <div className='container text-center'>
+    <div className='container text-center' data-testid="financeedit">
       <h1 className='text-center'>Finance</h1>
 
-      <div className='container d-flex flex-wrap' style={{ width: '80%'}}>
+      <div className='container d-flex flex-wrap' style={{ width: '80%' }}>
         {finance.map((data) => {
           return (
-            <Card style={{ width: '25rem', margin: '1rem', padding: '1rem'}}>
+            <Card style={{ width: '25rem', margin: '1rem', padding: '1rem' }}>
               <Card.Body>
                 <Card.Title>{data.name}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{data.financeid}</Card.Subtitle>
                 <Card.Text>
-                 <b> Package Type            : </b>{data.pkgType}<br/>
-                 <b> Expire Date            : </b>{data.expDate}<br/>
-                 <b> Price            :          </b>{data.price}<br/>
-                 <b> profit        :             </b>{data.profit}<br/>
-                 <b> Final Price               : </b>{data.finalPrice}<br/>
+                  <b> Package Type            : </b>{data.pkgType}<br />
+                  <b> Expire Date            : </b>{data.expDate}<br />
+                  <b> Price            :          </b>{data.price}<br />
+                  <b> profit        :             </b>{data.profit}<br />
+                  <b> Final Price               : </b>{data.finalPrice}<br />
                 </Card.Text>
                 <Link to={"/editorDash/financeupdateform/" + data._id}>
-                <Button variant="warning">Update</Button>
+                  <Button variant="warning">Update</Button>
                 </Link>
                 <Button variant="danger" className='ms-3' onClick={() => deleteFinance(data.id)}>Delete</Button>
               </Card.Body>
             </Card>
-          )        
+          )
         })}
       </div>
     </div>

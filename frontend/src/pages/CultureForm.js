@@ -14,7 +14,7 @@ function CultureForm() {
 
 
     return (
-        <div className='PackageFormMainCont'>
+        <div className='PackageFormMainCont' data-testid="cultureform">
             <h1>Add Cultural Scenario Details</h1>
             <div className="PackageForm">
                 <br />

@@ -55,7 +55,7 @@ function ProfileUpdateForm() {
   }, []);
 
   return (
-    <div className="ProfileUpdateFormMainCont">
+    <div className="ProfileUpdateFormMainCont" data-testid="profileupdateform">
       <h1 className="text-center">Update User Profile</h1>
       <div className="ProfileUpdateFormCont">
         <form

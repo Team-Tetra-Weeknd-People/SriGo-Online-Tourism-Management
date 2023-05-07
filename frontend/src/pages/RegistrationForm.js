@@ -77,7 +77,7 @@ function RegistrationForm() {
   }, [user, gUser, error, gError]);
 
   return (
-    <div className="RegistrationFormMainCont">
+    <div className="RegistrationFormMainCont" data-testid="registrationform">
       <Navbar />
       <div className="RegistrationFormInnerCont">
         <br />

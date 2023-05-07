@@ -33,7 +33,7 @@ function FinanceDestinationUpdateForm() {
   }, []);
 
   return (
-    <div className="DestinationUpdateFormMainCont">
+    <div className="DestinationUpdateFormMainCont" data-testid="financedestinationupdateform">
       <h1>Update Travel Destination</h1>
       <div className="DestinationUpdateFormCont">
         <form

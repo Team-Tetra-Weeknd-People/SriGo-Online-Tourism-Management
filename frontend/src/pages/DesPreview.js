@@ -53,6 +53,7 @@ function DesPreview() {
       <div
         className="desPreviewContainer"
         style={{ backgroundImage: `url(${attraction.images})` }}
+        data-testid="despreview"
       >
         <div className="desPreviewBlueDiv" />
         <div className="despreviewTextContainer">

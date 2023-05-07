@@ -203,7 +203,7 @@ function FinancePending() {
                 cold2 = props.airline;
                 cold3 = props.businessClass;
                 cold4 = props.economyClass;
-                cold5 = <Link className='updatebttn' to={"/financeDashboard/financeFlightUpdateForm/"+props._id}><span className="material-symbols-outlined">edit</span></Link>;
+                cold5 = <Link className='updatebttn' to={"/financeDashboard/financeFlightUpdateForm/" + props._id}><span className="material-symbols-outlined">edit</span></Link>;
                 cold6hid = 'none';
                 break;
             case 'hotel':
@@ -212,7 +212,7 @@ function FinancePending() {
                 cold3hid = 'none';
                 cold4 = props.buyingPrice;
                 cold5 = props.sellingPrice;
-                cold6 = <Link className='updatebttn' to={"/financeDashboard/financeHotelUpdateForm/"+props._id}><span className="material-symbols-outlined">edit</span></Link>;
+                cold6 = <Link className='updatebttn' to={"/financeDashboard/financeHotelUpdateForm/" + props._id}><span className="material-symbols-outlined">edit</span></Link>;
                 break;
             case 'destination':
                 cold1 = props.name;
@@ -220,7 +220,7 @@ function FinancePending() {
                 cold3 = props.childTicketSellingRate;
                 cold4 = props.adultTicketBuyingRate;
                 cold5 = props.adultTicketSellingRate;
-                cold6 = <Link className='updatebttn' to={"/financeDashboard/destinationUpdateForm/"+props._id}><span className="material-symbols-outlined">edit</span></Link>;
+                cold6 = <Link className='updatebttn' to={"/financeDashboard/destinationUpdateForm/" + props._id}><span className="material-symbols-outlined">edit</span></Link>;
                 break;
             case 'taxi':
                 cold1 = props.driverName;
@@ -228,7 +228,7 @@ function FinancePending() {
                 cold3 = props.fee;
                 cold4hid = 'none';
                 cold5hid = 'none';
-                cold6 = <Link className='updatebttn' to={"/financeDashboard/FinanceVehicleUpdateForm/"+props._id}><span className="material-symbols-outlined">edit</span></Link>;;
+                cold6 = <Link className='updatebttn' to={"/financeDashboard/FinanceVehicleUpdateForm/" + props._id}><span className="material-symbols-outlined">edit</span></Link>;;
                 break;
             case 'package':
                 cold1 = props.name;
@@ -246,7 +246,7 @@ function FinancePending() {
                 cold5hid = 'none';
                 cold6hid = 'none';
                 break;
-                
+
             default:
                 break;
         }
@@ -307,14 +307,14 @@ function FinancePending() {
             col4 = 'Contact Number';
             col5hid = 'none';
             col6hid = 'none';
-            break;  
+            break;
 
     }
 
     useEffect(() => { getArray() }, [type]);
 
     return (
-        <div className='FinancePendingMainCont'>
+        <div className='FinancePendingMainCont' data-testid="financepending">
             <h1>{topicType} Overview</h1>
             <div className='FinancePendingSearch'>
                 <input className='FinancePendingSearchbar' type='text' placeholder='Search here' onChange={(e) => { setSearchTerm(e.target.value) }} />

@@ -29,7 +29,7 @@ function Packages() {
   }, []);
 
   return (
-    <div className="flightMainContainer">
+    <div className="flightMainContainer" data-testid="packages">
       <NavbarDark />
       <div className="flightInnerContainer" data-testid="packages">
         <h1 className="flightHeader">Packages</h1>

@@ -1,4 +1,4 @@
-import { render, screen, cleanup } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import CeoDashSidebar from '../components/CeoDashSidebar';
 import ClientDashSidebar from '../components/ClientDashSidebar';
@@ -9,7 +9,6 @@ import FinanceDashSidebar from '../components/FinanceDashSidebar';
 import Footer from '../components/Footer';
 import NavbarDark from '../components/NavbarDark';
 import Navbar from '../components/NavbarDark';
-
 
 test('renders CeoDashSidebar', () => {
     render(<CeoDashSidebar />);

@@ -18,11 +18,11 @@ function PackageForm() {
 
 
     return (
-        <div className='PackageFormMainCont'>
+        <div className='PackageFormMainCont' data-testid="packageform">
             <h1>Add Package Details</h1>
             <div className="PackageForm">
                 <br />
-                <form onSubmit={async(e) => {
+                <form onSubmit={async (e) => {
                     e.preventDefault();
                     //image
                     const imageRef = ref(storage, `images/packages/${name + image.name}`);
@@ -37,29 +37,29 @@ function PackageForm() {
                     await getDownloadURL(ref(storage, `images/packages/${name + image.name}`))
                         .then((url) => {
                             console.log(url);
-                       
-                    const newPackage = {
-                        name,
-                        destination,
-                        members,
-                        hotel,
-                        roomType,
-                        vehicle,
-                        guide,
-                        price,
-                        image :url
-                    }
 
-                    axios.post(`${process.env.REACT_APP_BACKEND_URL}/packages/create`, newPackage)
-                        .then(() => {
-                            alert("Package Content added successfully");
+                            const newPackage = {
+                                name,
+                                destination,
+                                members,
+                                hotel,
+                                roomType,
+                                vehicle,
+                                guide,
+                                price,
+                                image: url
+                            }
+
+                            axios.post(`${process.env.REACT_APP_BACKEND_URL}/packages/create`, newPackage)
+                                .then(() => {
+                                    alert("Package Content added successfully");
+                                }).catch((err) => {
+                                    alert("Error adding Package Content");
+                                    console.log(err);
+                                })
                         }).catch((err) => {
-                            alert("Error adding Package Content");
                             console.log(err);
                         })
-                    }).catch((err) => {
-                        console.log(err);
-                    })
                 }}>
 
                     <div className="form-group">
@@ -91,7 +91,7 @@ function PackageForm() {
                         <input type="text" className="form-control"
                             onChange={(e) => {
                                 setHotel(e.target.value);
-                            }} required/>
+                            }} required />
                     </div>
 
                     <div className="form-group">
@@ -99,32 +99,32 @@ function PackageForm() {
                         <input type="text" className="form-control"
                             onChange={(e) => {
                                 setRoomType(e.target.value);
-                            }}required />
+                            }} required />
                     </div>
-                    
-                    
-                    <div className="form-group">
-                    <label className="form-label">Vehicle </label>
-                    <select className="form-control" onChange={(e) => {
-                        setVehicle(e.target.value);
-                    }} required> 
-                        <option value = "Car" selected = "selected">Car</option>
-                        <option value = "Van">Van</option>
-                        <option value = "Three-Wheel">Three-Wheel</option>
-                        <option value = "Bus">Bus</option>
-                    </select>
-                </div>
+
 
                     <div className="form-group">
-                    <label className="form-label">Guide</label>
-                    <select className="form-control" onChange={(e) => {
-                        setGuide(e.target.value);
-                    }} required> 
-                        <option value = "without" selected = "selected">without</option>
-                        <option value = "with">with</option>
-                      
-                    </select>
-                </div>
+                        <label className="form-label">Vehicle </label>
+                        <select className="form-control" onChange={(e) => {
+                            setVehicle(e.target.value);
+                        }} required>
+                            <option value="Car" selected="selected">Car</option>
+                            <option value="Van">Van</option>
+                            <option value="Three-Wheel">Three-Wheel</option>
+                            <option value="Bus">Bus</option>
+                        </select>
+                    </div>
+
+                    <div className="form-group">
+                        <label className="form-label">Guide</label>
+                        <select className="form-control" onChange={(e) => {
+                            setGuide(e.target.value);
+                        }} required>
+                            <option value="without" selected="selected">without</option>
+                            <option value="with">with</option>
+
+                        </select>
+                    </div>
 
                     <div className="form-group">
                         <label className="form-label">Package Price (SriLankan rupees)</label>
