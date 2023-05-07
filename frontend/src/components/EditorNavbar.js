@@ -3,12 +3,12 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Button from 'react-bootstrap/Button';
-import {LinkContainer} from 'react-router-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 import { Link } from "react-router-dom";
 
 function EditorNavbar() {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="lg" data-testid="editornavbar">
       <Container>
         <LinkContainer to="/editorDash">
           <Navbar.Brand>Editor Dashboard</Navbar.Brand>
@@ -46,7 +46,7 @@ function EditorNavbar() {
 
             </NavDropdown>
             <NavDropdown title="Taxis" id="basic-nav-dropdown">
-            <LinkContainer to="/editorDash/vehicleForm">
+              <LinkContainer to="/editorDash/vehicleForm">
                 <NavDropdown.Item>Create</NavDropdown.Item>
               </LinkContainer>
               <LinkContainer to="/editorDash/vehiclesEdit">
@@ -59,18 +59,18 @@ function EditorNavbar() {
             </NavDropdown>
 
             <NavDropdown title="Packages" id="basic-nav-dropdown">
-            <LinkContainer to="/editorDash/PackageForm">
-              <NavDropdown.Item >Create</NavDropdown.Item></LinkContainer>
-            <LinkContainer to="/editorDash/packagesEdit">
-               <NavDropdown.Item>Update & Delete</NavDropdown.Item></LinkContainer>
-               <NavDropdown.Divider />
-            <LinkContainer to="/editorDash/packages">
-               <NavDropdown.Item>Client View</NavDropdown.Item></LinkContainer>
+              <LinkContainer to="/editorDash/PackageForm">
+                <NavDropdown.Item >Create</NavDropdown.Item></LinkContainer>
+              <LinkContainer to="/editorDash/packagesEdit">
+                <NavDropdown.Item>Update & Delete</NavDropdown.Item></LinkContainer>
+              <NavDropdown.Divider />
+              <LinkContainer to="/editorDash/packages">
+                <NavDropdown.Item>Client View</NavDropdown.Item></LinkContainer>
             </NavDropdown>
 
           </Nav>
           <Link to={"/"}>
-                <Button variant="outline-dark ms-2">Logout</Button>
+            <Button variant="outline-dark ms-2">Logout</Button>
           </Link>
         </Navbar.Collapse>
       </Container>

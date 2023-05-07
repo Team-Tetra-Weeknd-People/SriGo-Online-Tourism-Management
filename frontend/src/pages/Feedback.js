@@ -28,7 +28,7 @@ function Feedback() {
         });
     }
 
-  useEffect(() => { getFeedback() });  //Shows changes of the page
+  useEffect(() => { getFeedback() } , []);  //Shows changes of the page
 
   return (
     <div className='container text-center'>
