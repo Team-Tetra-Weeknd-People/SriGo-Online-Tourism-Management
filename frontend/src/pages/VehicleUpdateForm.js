@@ -62,7 +62,7 @@ function VehicleUpdateForm() {
   }, []);
 
   return (
-    <div className="VehicleUpdateFormMainCont">
+    <div className="VehicleUpdateFormMainCont" data-testid="vehicleupdateform">
       <h1>Update Vehicle Details</h1>
       <div className="VehicleUpdateFormCont">
         <form
