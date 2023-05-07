@@ -44,7 +44,7 @@ function HotelUpdateForm() {
     useEffect(() => getHotel(), []); // RUns everytime page opens
 
     return (
-        <div className='HotelUpdateFormMainCont'>
+        <div className='HotelUpdateFormMainCont' data-testid="hotelupdateform">
             <h1>Update Hotel Content</h1>
             <div className="HotelUpdateFormCont">
                 <form onSubmit={async (e) => {

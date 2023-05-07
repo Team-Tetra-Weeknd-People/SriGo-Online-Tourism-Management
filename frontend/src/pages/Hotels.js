@@ -54,7 +54,7 @@ function Hotels() {
   }, []); //Shows changes of the page
 
   return (
-    <div className="hotelMainContainer">
+    <div className="hotelMainContainer" data-testid="hotels">
       <NavbarDark />
       <div className="hotelInnerContainer">
         <h1 className="hotelHeader">Hotels</h1>

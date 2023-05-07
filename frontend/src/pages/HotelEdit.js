@@ -32,7 +32,7 @@ function HotelEdit() {
   useEffect(() => { getHotels() });  //Shows changes of the page
 
   return (
-    <div className='container text-center'>
+    <div className='container text-center' data-testid="hoteledit">
       <h1 className='text-center'>Hotels</h1>
 
       <div className='container d-flex flex-wrap' style={{ width: '80%'}}>

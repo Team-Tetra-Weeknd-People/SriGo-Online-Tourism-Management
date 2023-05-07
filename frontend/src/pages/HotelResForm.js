@@ -64,7 +64,7 @@ function HotelResForm({}) {
     }
   }
   return (
-    <div id="hotelresform" className="hotelresContainer">
+    <div id="hotelresform" className="hotelresContainer" data-testid="hotelresform">
       <NavbarDark />
       <br />
       <h1>Booking Details</h1>
