@@ -97,7 +97,7 @@ function RentalUpdateForm() {
   });
 
   return (
-    <div className="DesResUpdateFormMainCont">
+    <div className="DesResUpdateFormMainCont" data-testid="rentalupdateform">
       <h1>Update Rental Details</h1>
       <div className="DesResUpdateFormCont">
         <form

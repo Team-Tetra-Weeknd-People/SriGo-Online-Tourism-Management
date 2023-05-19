@@ -49,7 +49,7 @@ function HotelResUpdateForms() {
     
 
     return (
-        <div className="HotelResUpdateFormMainCont">
+        <div className="HotelResUpdateFormMainCont" data-testid="hotelresupdateforms">
             <h1>Update Booking Details</h1>
             <div className='HotelResUpdateFormCont'>
                 <form onSubmit={async (e) => {

@@ -18,7 +18,7 @@ function DesPreview() {
 
   const getAttraction = async () => {
     await axios
-      .get(`${process.env.REACT_APP_BACKEND_URL}/destination/ `+ id)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/destination/` + id)
       .then((res) => {
         setAttraction(res.data);
       })
@@ -53,6 +53,7 @@ function DesPreview() {
       <div
         className="desPreviewContainer"
         style={{ backgroundImage: `url(${attraction.images})` }}
+        data-testid="despreview"
       >
         <div className="desPreviewBlueDiv" />
         <div className="despreviewTextContainer">

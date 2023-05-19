@@ -1,4 +1,3 @@
-import Button from "react-bootstrap/esm/Button";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
   Home,
@@ -6,21 +5,15 @@ import {
   Hotels,
   Attractions,
   Taxis,
-  Vehicles,
   Packages,
-  EditorDashboard,
   DestinationForm,
   SharedLayoutHome,
   SharedLayoutEditorDashboard,
-  AttractionEdit,
   HotelForm,
-  HotelEdit,
   FlightForm,
-  FlightEdit,
   FlightPreview,
   DestinationUpdateForm,
   PackageForm,
-  PackagesEdit,
   PackageUpdateForm,
   HotelUpdateForm,
   HotelPreview,
@@ -30,8 +23,6 @@ import {
   FlightUpdateForm,
   VehicleUpdateForm,
   VehicleForm,
-  VehiclesEdit,
-  UserDashboard,
   UserProfile,
   FinanceForm,
   ClientDashboard,
@@ -39,7 +30,6 @@ import {
   Bookings,
   Feedback,
   Payments,
-  DestinationBookings,
   HotelResForm,
   FlightResForm,
   FeedbackForm,
@@ -63,14 +53,15 @@ import {
   PackagePreview,
   PackageReservationForm,
   PackageReservationUpdateForm,
-  FinanceUpdateForm,
-  FinanceEdit,
   InvoiceForm,
   Invoice,
   InvoiceUpdateForm,
   FlightTicketView,
   RentalUpdateForm,
   FeedbackUpdateForm,
+  Culture,
+  CultureForm,
+  CultureUpdateForm,
 } from "../pages";
 
 function AppRoutes() {
@@ -95,7 +86,8 @@ function AppRoutes() {
           <Route path="rentalPreview/:id" element={<RentalPreview />} />
           <Route path="rentalForm/:id" element={<RentalForm />} />
           <Route path="PackagePreview/:id" element={<PackagePreview />} />
-          
+          <Route path="/Cultures" element={<Culture />} />
+
 
 
           <Route
@@ -104,7 +96,7 @@ function AppRoutes() {
           />
         </Route>
         <Route path="/" element={<ClientDashboard />}>
-        <Route path="FeedbackForm" element={<FeedbackForm />} />
+          <Route path="FeedbackForm" element={<FeedbackForm />} />
           <Route path="feedbackUpdateForm/:id" element={<FeedbackUpdateForm />} />
         </Route>
 
@@ -131,8 +123,12 @@ function AppRoutes() {
           <Route path="destinationForm" element={<DestinationForm />} />
           <Route path="vehicleForm" element={<VehicleForm />} />
           <Route path="packageForm" element={<PackageForm />} />
+          <Route path="cultureForm" element={<CultureForm />} />
+
           <Route path="flightUpdateForm/:id" element={<FlightUpdateForm />} />
           <Route path="hotelUpdateForm/:id" element={<HotelUpdateForm />} />
+          <Route path="cultureUpdateForm/:id" element={<CultureUpdateForm />} />
+
           <Route
             path="destinationUpdateForm/:id"
             element={<DestinationUpdateForm />}
@@ -170,7 +166,7 @@ function AppRoutes() {
           />
           <Route path="rental/:rentalId" element={<RentalUpdateForm />} />
         </Route>
-      
+
         <Route
           path="/financeDashboard"
           element={<SharedLayoutFinanceDashboard />}
@@ -198,6 +194,8 @@ function AppRoutes() {
           <Route path="invoiceForm" element={<InvoiceForm />} />
           <Route path="Invoice" element={<Invoice />} />
           <Route path="InvoiceUpdateForm/:id" element={<InvoiceUpdateForm />} />
+
+
         </Route>
       </Routes>
     </Router>

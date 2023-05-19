@@ -60,7 +60,7 @@ function RentalPreview() {
   useEffect(() => { getVehicle() }, [id]);
 
   return (
-    <div className='taxipreviewContainer'>
+    <div className='taxipreviewContainer' data-testid="taxipreview">
       <NavbarDark />
       <div className="taxiApp">
         <div className='taxiImgContainer'>

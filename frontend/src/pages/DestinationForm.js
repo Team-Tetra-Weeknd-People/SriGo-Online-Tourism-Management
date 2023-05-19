@@ -18,7 +18,7 @@ function DestinationForm() {
   const navigate = useNavigate();
 
   return (
-    <div className="DestinationFormMainCont">
+    <div className="DestinationFormMainCont" data-testid="destinationform">
       <h1>Add Travel Destination</h1>
       <div className="DestinationFormCont">
         <form

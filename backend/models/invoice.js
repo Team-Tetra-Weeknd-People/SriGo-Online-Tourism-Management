@@ -12,7 +12,7 @@ const invoiceSchema = new Schema({
         required: true
     },
     phone: {
-        type: Number,
+        type: String,
         required: true
     },
     Type: {
@@ -20,13 +20,13 @@ const invoiceSchema = new Schema({
         required: true
     },
     price: {
-        type: Number,
+        type: String,
         required: true
     },
     additonalaNote: {
         type: String,
-        
-     
+
+
     },
 });
 

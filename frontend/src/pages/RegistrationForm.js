@@ -77,7 +77,7 @@ function RegistrationForm() {
   }, [user, gUser, error, gError]);
 
   return (
-    <div className="RegistrationFormMainCont">
+    <div className="RegistrationFormMainCont" data-testid="registrationform">
       <Navbar />
       <div className="RegistrationFormInnerCont">
         <br />
@@ -141,7 +141,7 @@ function RegistrationForm() {
                   onChange={(e) => {
                     setContactNo(e.target.value);
                   }}
-                  pattern="[0-9]{10}"  title="Must contain only 10 digits"
+                  pattern="[0-9]{10}" title="Must contain only 10 digits"
                   required
                 />
               </div>

@@ -63,7 +63,7 @@ function CeoDashboard() {
   useEffect(() => { setStates() }, []);
 
   return (
-    <div className="CeoDashMainCont">
+    <div className="CeoDashMainCont" data-testid="ceodashboard">
       <h1>Dashboard</h1>
       <div className='CeoDasInnerCont'>
         <div className='CeoInConR1'>

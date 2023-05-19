@@ -16,7 +16,7 @@ function HotelForm() {
 
 
     return (
-        <div className='HotelFormMainCont'>
+        <div className='HotelFormMainCont' data-testid="hotelform"> 
             <h1>Add Hotel Content</h1>
             <div className="HotelFormCont">
                 <form onSubmit={async (e) => {

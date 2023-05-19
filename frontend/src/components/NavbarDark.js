@@ -10,10 +10,7 @@ import { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import axios from "axios";
-import { GoogleLogin, GoogleLogout } from "react-google-login";
-import { gapi } from "gapi-script";
 import {
-  useAuthState,
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
@@ -22,7 +19,6 @@ import { signOut } from "firebase/auth";
 
 function Navbar() {
   const [show, setShow] = useState(false);
-  const [showLogout, setLogout] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -145,7 +141,7 @@ function Navbar() {
   // };
 
   return (
-    <Navbarx className="NavbarDarkCont" expand="lg">
+    <Navbarx className="NavbarDarkCont" expand="lg" data-testid="navbardark">
       <Container>
         <Navbarx.Toggle aria-controls="basic-navbar-nav" />
         <Navbarx.Collapse id="basic-navbar-nav" className="DarkNavbarList">
@@ -160,7 +156,7 @@ function Navbar() {
             </Navbarx.Brand>
           </LinkContainer>
           <Nav className="me-auto">
-          <Nav.Link as={Link} to="/flights" className="Darknavlink">
+            <Nav.Link as={Link} to="/Cultures" className="Darknavlink">
               Culture
             </Nav.Link>
             <Nav.Link as={Link} to="/flights" className="Darknavlink">

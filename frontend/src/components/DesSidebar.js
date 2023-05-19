@@ -18,13 +18,13 @@ function DesSidebar() {
       });
   }
 
-  useEffect(() => { getAttractions() } , []);
+  useEffect(() => { getAttractions() }, []);
 
   return (
-    <div className='DesSidebar'>
+    <div className='DesSidebar' data-testid="dessidebar">
       <div className='container'>
         {attractions.map((data) => {
-          if(data.childTicketBuyingRate != null) {
+          if (data.childTicketBuyingRate != null) {
             return (
               <Link to={`/attractions/${data._id}`}>
                 <Card className='DesSidebarCard' key={`${data._id} + 1`}>

@@ -8,11 +8,11 @@ function FinanceHotelUpdateForm() {
     const [buyingPrice, setBuyingPrice] = useState('');
     const [sellingPrice, setSellingPrice] = useState('');
 
-    const {id} = useParams();
+    const { id } = useParams();
     const navigate = useNavigate();
-  
-    const getUniqueHotel = () => {   
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/hotels/`+ id)
+
+    const getUniqueHotel = () => {
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/hotels/` + id)
             .then((res) => {
                 setName(res.data.name);
                 setBuyingPrice(res.data.buyingPrice);
@@ -22,11 +22,11 @@ function FinanceHotelUpdateForm() {
                 alert(err);
             });
     };
-    
+
     useEffect(() => { getUniqueHotel() }, []);
 
     return (
-        <div className='FlightUpdateFormMainCont'>
+        <div className='FlightUpdateFormMainCont' data-testid="financehotelupdateform">
             <h1>Update Hotel Financial Details</h1>
             <div className="FlightUpdateFormCont">
                 <form onSubmit={async (e) => {
@@ -46,15 +46,15 @@ function FinanceHotelUpdateForm() {
 
                     <div className="form-group">
                         <label className="form-label">Name</label>
-                        <input type="text" className="form-control" value={name}  readOnly/>
+                        <input type="text" className="form-control" value={name} readOnly />
                     </div>
                     <div className="form-group">
                         <label className="form-label">Hotel Ticket Buying Price</label>
-                        <input type="text" className="form-control" value={buyingPrice} onChange={(e) => { setBuyingPrice(e.target.value) }} required/>
+                        <input type="text" className="form-control" value={buyingPrice} onChange={(e) => { setBuyingPrice(e.target.value) }} required />
                     </div>
                     <div className="form-group">
                         <label className="form-label">Hotel Ticket Selling Price</label>
-                        <input type="text" className="form-control" value={sellingPrice} onChange={(e) => { setSellingPrice(e.target.value) }} required/>
+                        <input type="text" className="form-control" value={sellingPrice} onChange={(e) => { setSellingPrice(e.target.value) }} required />
                     </div>
                     <br />
                     <button type="submit" className="btn btn-dark">Submit</button><br /><br />

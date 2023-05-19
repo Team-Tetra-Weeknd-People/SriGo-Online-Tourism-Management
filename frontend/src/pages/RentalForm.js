@@ -78,7 +78,7 @@ function RentalForm() {
   });
 
   return (
-    <div id="rentalform" className="rentalContainer">
+    <div id="rentalform" className="rentalContainer" data-testid="rentalform">
       <NavbarDark />
 
       <h1>Rental Details</h1>

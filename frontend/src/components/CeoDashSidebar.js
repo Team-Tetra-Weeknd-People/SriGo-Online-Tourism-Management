@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function CeoDashSidebar() {
   return (
-    <div className="CeoDashSidebarMainCont">
+    <div className="CeoDashSidebarMainCont" data-testid="ceodashsidebar">
       <div className="CeoDSLogoCont">
         <center>
           <img

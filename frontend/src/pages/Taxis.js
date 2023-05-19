@@ -54,7 +54,7 @@ function Taxis() {
   }, []); //Shows changes of the page
 
   return (
-    <div className="taxiMainContainer">
+    <div className="taxiMainContainer" data-testid="taxis">
       <NavbarDark />
       <div className="taxiInnerContainer">
         <h1 className="taxiHeader">Taxis</h1>

@@ -71,7 +71,7 @@ function HotelPreview(){
     useEffect(()=> getHotel(),[]);
 
     return(
-        <div className='hotelpreviewContainer'>
+        <div className='hotelpreviewContainer' data-testid="hotelpreview">
             <NavbarDark />
             <div className="hotelApp">
                 <div className='hotelImgContainer'>

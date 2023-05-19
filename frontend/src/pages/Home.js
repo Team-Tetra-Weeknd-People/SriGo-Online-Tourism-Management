@@ -1,3 +1,4 @@
+
 import "../styles/sudul/Home.css";
 import Carousel from "react-bootstrap/Carousel";
 import Button from "react-bootstrap/Button";
@@ -38,7 +39,7 @@ function Home() {
   }
 
   return (
-    <div className="homeCont">
+    <div className="homeCont" data-testid="home">
       <Navbar />
       <Carousel className="carouselCont" fade>
         <Carousel.Item className="heroCont1" interval={2500}>
