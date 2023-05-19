@@ -1,5 +1,4 @@
-import { render, screen, cleanup } from '@testing-library/react';
-
+import { render, screen } from '@testing-library/react';
 
 import RentalForm from '../pages/RentalForm';
 import RentalPreview from '../pages/RentalPreview';
@@ -17,8 +16,6 @@ import HotelResForm from '../pages/HotelResForm';
 import HotelResUpdateForms from '../pages/HotelResUpdateForms';
 import Hotels from '../pages/Hotels';
 import HotelUpdateForm from '../pages/HotelUpdateForm';
-
-
 
 test('renders RentalForm', () => {
     render(<RentalForm />);
